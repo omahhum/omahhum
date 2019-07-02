@@ -45,7 +45,13 @@ window[callback] = function(json) {
  $("#blog_foot").html(data_t[8].v + "　" + data_t[9].v);
 
 };
-     
+
+   $(window).error(function(){
+     alert("資料錯誤");
+      //$("#blog_title").html("無此文章存在");
+     //location.href="http://omahhum.yebi.tw";
+     reuten;
+     });
 
 
 })(window, jQuery);
