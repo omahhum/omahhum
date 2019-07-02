@@ -173,9 +173,9 @@ window[callback] = function(json) {
   i, j, dataGroup, dataLength;
  
  data_t = rowArray[0].c; 
- $("#blog_title").html(dataGroup[4].v);
- $("#blog_intro").html(dataGroup[5].v);
- $("#blog_content").html(dataGroup[6].v);
+ $("#blog_title").html(data_t[4].v);
+ $("#blog_intro").html(data_t[5].v);
+ $("#blog_content").html(data_t[6].v);
  
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
