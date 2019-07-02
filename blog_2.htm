@@ -168,13 +168,14 @@ $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback
 window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
-  html = "",
+  html = "<br/>",
   i, j, dataGroup, dataLength;
- dataGroup = rowArray[1].c;
  
+ /*dataGroup = rowArray[1].c; 
  $("#blog_title").html(dataGroup[4].f);
  $("#blog_intro").html(dataGroup[5].f);
- $("#blog_content").html(dataGroup[6].f);
+ $("#blog_content").html(dataGroup[6].f);*/
+ 
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
