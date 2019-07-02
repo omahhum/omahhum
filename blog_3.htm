@@ -29,7 +29,7 @@ $("#blog_intro").html(go_url);
      
 $.ajax({
   url: go_url,
-  type: "GET",
+  type: "POST",
   dataType: "json",
   contentType: 'application/json; charset=UTF-8',
   success: function(Jdata) {
