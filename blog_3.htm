@@ -29,6 +29,8 @@ $("#blog_intro").html(go_url);
 
      //
      var get_url = $.getScript(go_url);
+     $("#blog_content").html(get_url);
+     
      var jqxhr = $.getJSON( get_url, function() {
   //console.log( "success" );
           $("#test").html("success---"+go_url);
@@ -45,7 +47,7 @@ $("#blog_intro").html(go_url);
     //console.log( "complete" );
     $("#test").html("complete-----"+go_url);
   });
-     $("#blog_content").html(get_url);
+     
      //
      
 /*
