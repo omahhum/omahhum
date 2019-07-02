@@ -11,7 +11,7 @@
 (function(window, $) {
 let t_url = new URL(document.URL);
 let url_p = t_url.searchParams;
-let content_no = url_p.get("no");
+var content_no = url_p.get("no");
 
  if(content_no = ""){
   //alert("無此文章存在");
