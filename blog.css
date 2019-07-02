@@ -1,0 +1,105 @@
+body	{ background-image:url(pics/base_bg1.gif);
+ background-repeat:repeat-x;}
+.blog_table	{ width:1003px;}
+.banner	{}
+.blog_menu	{ height:55px;
+ background-image:url(pics/menu_bg.gif);
+ background-repeat:no-repeat;
+ padding-top:5px;}
+.blog_main	{ width:1003px;}
+.l_td	{ width:254px;
+ padding:2px;}
+.m_td	{ width:660;
+}
+.r_td	{ width:190px;}
+.b_bottom	{}
+.module_small	{ width:100%;
+ font-size:10pt;
+ margin-top:10px;
+ margin-right:0px;}
+.module_small_title	{ background-color:#adf;
+ color:#33c;
+font-size:15px;
+ text-align:center;
+}
+.module_small_content	{ line-height:22px;
+ color:#009900;
+}
+.module_big	{ border-bottom:1 solid #339933;}
+.module_big_title	{ margin-bottom:20px;
+ margin-top:20px;}
+.module_big_content	{ font-size:13px;
+ line-height:20px;}
+.module_big_footer	{ font-size:13px;
+ color:#009900;
+ margin-top:10px; text-align:right;
+}
+.p_class	{ width:700;}
+.p_topic	{ margin-top:20px;
+ margin-bottom:20px;
+ color:#009900;}
+.p_content	{}
+.p_intro	{}
+.photo_table	{}
+.photo_album	{}
+.photos_area	{}
+.photo_grid	{}
+.big_photo	{}
+.board_table	{}
+.board_title	{ border:1 solid #008800;}
+.board_list	{ border:1 dotted #009900;
+ font-size:13px;}
+.b_topic_title	{ border:1 solid #008800;}
+.b_topic_list	{ border:1 dotted #009900;
+ font-size:13px;}
+.b_content_area	{ background-color:#FFCCFF;
+ border:1 solid #990000;
+ font-size:13px;
+ margin-top:-1px;}
+.b_content_title	{ border :1 solid #990000;
+ background-color:#FFCC66;
+ width:100%;
+ padding:5px;}
+.b_content_writer	{ border-right:1 solid #990000;
+ text-align:center;}
+.b_content	{ height:auto;}
+.b_content_footer	{ border-top:1 dotted #990000;
+ padding:5px;}
+.b_repeat_area	{ border:1 solid #009900;
+ margin-top:-20px;
+ font-size:13px;}
+.b_repeater	{ border-right:1 solid #009900;}
+.b_repeat	{}
+.b_repeat_footer	{ border-top:1 dotted #008800;
+ padding:5px;}
+.msg_area	{}
+.msg_title	{ margin-left:20px;}
+.msg_content	{ padding-top:10px;
+ margin-bottom:10px;
+ margin-left:80px;
+ font-size:13px;
+ line-height:20px;
+ border-bottom:1 solid #009900;}
+.msg_rep_area	{ clean:both;
+ margin-left:20px;
+ width:780;}
+.msg_rep_input	{ border:none;
+ border-bottom:1 dotted #008800;
+ }
+.msg_rep_textarea	{
+ border:1 dotted #008800;
+ background-position:95% 95%;
+ background-repeat:no-repeat;
+}
+.msg_rep_button	{}
+a	{ text-decoration:none;}
+a:link	{}
+a:active	{}
+a:visited	{}
+a:hover	{}
+.my_url_title	{}
+.my_url_class	{}
+.used_class	{}
+.other_class	{}
+.my_url_text_link	{}
+.my_url_pic_link	{}
