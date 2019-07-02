@@ -151,7 +151,10 @@ a:hover	{}
 <!------------------------------------------------------------------->
 
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-<div id="test"></div>
+<div id="blog_title"></div>
+<div id="blog_intro"></div>
+<div id="blog_content"></div>
+
 <script>
 (function(window, $) {
 var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
@@ -166,7 +169,12 @@ window[callback] = function(json) {
   rowLength = rowArray.length,
   html = "",
   i, j, dataGroup, dataLength;
-  for (i = 0; i < rowLength; i++) {
+ dataGroup = rowArray[0].c;
+ 
+ $("#blog_title").html(dataGroup[4]);
+ $("#blog_intro").html(dataGroup[5]);
+ $("#blog_content").html(dataGroup[6]);
+  /*for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
     for (j = 0; j < dataLength; j++) {
@@ -176,8 +184,8 @@ window[callback] = function(json) {
       html += (dataGroup[j].f || dataGroup[j].v || "") + " ";
      }
      html += "<br/>";
-   }
-$("#test").html(html);
+   }*/
+//$("#test").html(html);
 };
 })(window, jQuery);
 </script>
