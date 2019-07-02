@@ -169,12 +169,13 @@ window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<br/>",
+  data_t,
   i, j, dataGroup, dataLength;
  
- /*dataGroup = rowArray[1].c; 
- $("#blog_title").html(dataGroup[4].f);
- $("#blog_intro").html(dataGroup[5].f);
- $("#blog_content").html(dataGroup[6].f);*/
+ data_t = rowArray[0].c; 
+ $("#blog_title").html(dataGroup[4].v);
+ $("#blog_intro").html(dataGroup[5].v);
+ $("#blog_content").html(dataGroup[6].v);
  
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
