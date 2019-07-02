@@ -183,6 +183,7 @@ var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
 $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
 
 window[callback] = function(json) {
+ $("#test").html(json);
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<br/>",
