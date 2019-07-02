@@ -28,7 +28,8 @@ var go_url = "https://spreadsheets.google.com/tq?tqx=responseHandler:callback&tq
 $("#blog_intro").html(go_url);
 
      //
-     var jqxhr = $.getJSON( go_url, function() {
+     var get_url = $.getScript(go_url);
+     var jqxhr = $.getJSON( get_url, function() {
   //console.log( "success" );
           $("#test").html("success---"+go_url);
 })
