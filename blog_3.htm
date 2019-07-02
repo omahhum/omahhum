@@ -31,7 +31,7 @@ $("#blog_intro").html(go_url);
      $.getScript(go_url);
 
 window[callback] = function(json) {
-     $("#blog_intro").html(json);
+     $("#blog_intro").html(json.table);
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<br/>",
