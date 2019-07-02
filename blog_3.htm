@@ -14,9 +14,9 @@ var url_p = t_url.searchParams;
 var content_no = url_p.get("no");
 
  if(content_no == "" || !url_p.has("no")){
-  //alert("無此文章存在");
-      $("#blog_title").html("無此文章存在");
-  //location.href="http://omahhum.yebi.tw";
+  alert("資料錯誤");
+      //$("#blog_title").html("無此文章存在");
+  location.href="http://omahhum.yebi.tw";
   reuten;
 };
 
