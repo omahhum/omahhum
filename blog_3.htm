@@ -160,8 +160,8 @@ a:hover	{}
 <div id="test"></div>
 <script>
 (function(window, $) {
-var t_url = new URL(document.URL);
-var url_p = t_url.searchParams;
+let t_url = new URL(document.URL);
+let url_p = t_url.searchParams;
 var content_no;
 if(!url_p.has("no")){
   alert("無此文章存在");
