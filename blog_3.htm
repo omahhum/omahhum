@@ -29,44 +29,36 @@ $("#blog_intro").html(go_url);
 
      //
      $.getScript(go_url);
-     $("#blog_content").html(json);
+
+window[callback] = function(json) {
+     $("#blog_intro").html(json);
+  var rowArray = json.table.rows,
+  rowLength = rowArray.length,
+  html = "<br/>",
+  data_t,
+  i, j, dataGroup, dataLength;
+ 
+ data_t = rowArray[0].c; 
+ $("#blog_title").html(data_t[4].v);
+ $("#blog_intro").html(data_t[5].v);
+ $("#blog_content").html(data_t[6].v.replace(new RegExp("\n", "g"), "<br>"));
+ $("#blog_foot").html(data_t[8].v + "　" + data_t[9].v);
+ /*
+  for (i = 0; i < rowLength; i++) {
+    dataGroup = rowArray[i].c;
+    dataLength = dataGroup.length;
+   html += i;
+    for (j = 0; j < dataLength; j++) {
+      if (!dataGroup[j]) {
+        continue;
+        }
+      html += (dataGroup[j].f || dataGroup[j].v || "") + " ";
+     }
+     html += "<br/>";
+   }
+$("#test").html(html);*/
+};
      
-     var jqxhr = $.getJSON( "", function() {
-  //console.log( "success" );
-          $("#test").html("success---"+go_url);
-})
-  .done(function() {
-    //console.log( "second success" );
-       $("#test").html("second success----"+go_url);
-  })
-  .fail(function() {
-    //console.log( "error" );
-       $("#test").html("ERROR!!!----"+go_url);
-  })
-  .always(function() {
-    //console.log( "complete" );
-    $("#test").html("complete-----"+go_url);
-  });
-     
-     //
-     
-/*
-$.ajax({
-  url: go_url,
-  type: "POST",
-  dataType: "json",
-  contentType: 'application/json; charset=UTF-8',
-  success: function(Jdata) {
-    //alert("SUCCESS!!!");
-    $("#test").html("SUCCESS!!!");
-  },
-  
-  error: function() {
-    //alert("ERROR!!!");
-     $("#test").html("ERROR!!!"+go_url);
-  }
-  
-});*/
 
 
 })(window, jQuery);
