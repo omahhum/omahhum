@@ -24,26 +24,30 @@ window[callback] = function(json) {
   
  /*
  data_t = rowArray[0].c; 
- $("#blog_title").html(data_t[4].v);
- $("#blog_intro").html(data_t[5].v);
- $("#blog_content").html(data_t[6].v.replace(new RegExp("\n", "g"), "<br>"));
- $("#blog_foot").html(data_t[8].f + "　" + data_t[9].v);
+ 
  */
  
  
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
-   html += i;
-    for (j = 0; j < dataLength; j++) {
+   
+       
+     //$("#blog_title").html(data_t[4].v);
+     //$("#blog_intro").html(data_t[5].v);
+     //$("#blog_foot").html(data_t[8].f + "　" + data_t[9].v);
+     
+     html +=   dataGroup[4].v + "：" + dataGroup[5].v + "<br>";
+       
+    /*for (j = 0; j < dataLength; j++) {
       if (!dataGroup[j]) {
         continue;
         }
       html += (dataGroup[j].f || dataGroup[j].v || "") + " ";
      }
-     html += "<br/>";
+     html += "<br/>";*/
    }
-$("#test").html(html);
+     $("#blog_intro").html(html);
 };
 })(window, jQuery);
 </script>
