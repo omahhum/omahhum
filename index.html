@@ -82,7 +82,7 @@
 (function(window, $) {
 var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
     gid = "629801742", // 工作表代號
-    sql = "select top 10 * order by B desc", // SQL 語法
+    sql = "select * order by B desc", // SQL 語法
     callback = "callback"; // 回呼函數名稱
 $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
 
