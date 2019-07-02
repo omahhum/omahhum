@@ -14,8 +14,9 @@ let url_p = t_url.searchParams;
 let content_no = url_p.get("no");
 
  if(content_no = "" || !url_p.has("no")){
-  alert("無此文章存在");
-  location.href="http://omahhum.yebi.tw";
+  //alert("無此文章存在");
+      $("#test").html("無此文章存在");
+  //location.href="http://omahhum.yebi.tw";
   reuten;
 };
 
@@ -31,11 +32,13 @@ $.ajax({
   contentType: 'application/json; charset=UTF-8',
   data: sJson,
   success: function(Jdata) {
-    alert("SUCCESS!!!");
+    //alert("SUCCESS!!!");
+    $("#test").html("SUCCESS!!!");
   },
   
   error: function() {
-    alert("ERROR!!!");
+    //alert("ERROR!!!");
+     $("#test").html("ERROR!!!");
   }
 });
 
