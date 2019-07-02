@@ -65,7 +65,7 @@
 <div align="center" style="padding:8px"><a href="http://omahhum.yebi.tw/#"><img src="pics/omahhum_ad.gif" border="0"></a></div>
 
 <div style="height:10px"></div>
-<div style="font-size:18px; margin-left:30px; margin-right:30px; padding:5px; background-color:#7cf; color:#fff">文章列表 :</div>
+<div style="font-size:18px; margin-left:30px; margin-right:30px; padding:5px; background-color:#7cf; color:#fff"><span id="class_title"></span>文章列表 :</div>
 <div style="font-size:13px; padding-left:30px;">
 	
 	<table style="font-size:13px; padding-top:5px" cellpadding="2" cellspacing="0" width="100%">
@@ -82,9 +82,23 @@
 <div id="test"></div>
 <script>
 (function(window, $) {
+var t_url = new URL(document.URL);
+var url_p = t_url.searchParams;
+var class_no = url_p.get("cno");
+var class_name = url_p.get("cname");
+
+$("#class_title").html("["+class_name+"] ");
+
+ if(class_no == "" || !url_p.has("cno")){
+  alert("資料錯誤");
+      //$("#blog_title").html("無此文章存在");
+  location.href="http://omahhum.yebi.tw";
+  reuten;
+};
+
 var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
     gid = "629801742", // 工作表代號
-    sql = "select * where A=15 order by B desc", // SQL 語法
+    sql = "select * where A="+class_no+" order by B desc", // SQL 語法
     callback = "callback"; // 回呼函數名稱
 $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
 window[callback] = function(json) {
