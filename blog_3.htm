@@ -25,7 +25,7 @@ var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
     sql = "select * where B=" + content_no, // SQL 語法
     callback = "callback"; // 回呼函數名稱
 var go_url = "https://spreadsheets.google.com/tq?tqx=responseHandler:callback&tq=" + sql + "&key=" + sheetID + "&gid=" + gid;
-$("#blog_intro").html(go_url);
+//$("#blog_intro").html(go_url);
 
      //
      $.getScript(go_url);
@@ -36,7 +36,8 @@ window[callback] = function(json) {
   html = "<br/>",
   data_t,
   i, j, dataGroup, dataLength;
- 
+     
+ $("#blog_intro").html(rowArray[0]);
  data_t = rowArray[0].c; 
  $("#blog_title").html(data_t[4].v);
  $("#blog_intro").html(data_t[5].v);
