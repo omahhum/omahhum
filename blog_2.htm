@@ -151,9 +151,10 @@ a:hover	{}
 <!------------------------------------------------------------------->
 
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-<div id="blog_title"></div>
-<div id="blog_intro"></div>
-<div id="blog_content"></div>
+     
+<div id="blog_title" style="font-size:22px; color:#000; font-weight:bolder;"></div>
+<div id="blog_intro" style="font-size:18px; padding-top:22px; color:#333;"></div>
+<div id="blog_content" style="font-size:18px;" padding-top:22px; color:#333;></div>
 
      <div id="test"></div>
 <script>
@@ -176,7 +177,7 @@ window[callback] = function(json) {
  $("#blog_title").html(data_t[4].v);
  $("#blog_intro").html(data_t[5].v);
  $("#blog_content").html(data_t[6].v);
- 
+ /*
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
@@ -189,7 +190,7 @@ window[callback] = function(json) {
      }
      html += "<br/>";
    }
-$("#test").html(html);
+$("#test").html(html);*/
 };
 })(window, jQuery);
 </script>
