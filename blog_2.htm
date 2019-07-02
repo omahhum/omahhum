@@ -178,7 +178,7 @@ window[callback] = function(json) {
  $("#blog_title").html(data_t[4].v);
  $("#blog_intro").html(data_t[5].v);
  $("#blog_content").html(data_t[6].v.replace(new RegExp("\n", "g"), "<br>"));
- $("#blog_foot").html(data_t[8].v + "　" + data_t[9].v);
+ $("#blog_foot").html(data_t[8].f + "　" + data_t[9].v);
  /*
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
