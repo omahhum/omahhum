@@ -152,11 +152,12 @@ a:hover	{}
 
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
      
-<div id="blog_title" style="font-size:22px; color:#000; font-weight:bolder;"></div>
-<div id="blog_intro" style="font-size:18px; padding-top:22px; color:#333;"></div>
-<div id="blog_content" style="font-size:18px;" padding-top:22px; color:#333;></div>
+<div id="blog_title" style="font-size:22px; color:#369; font-weight:bolder;"></div>
+<div id="blog_intro" style="font-size:18px; padding-top:22px; color:#333; line-height:22px;"></div>
+<div id="blog_content" style="font-size:18px; padding-top:22px; color:#333; line-height:22px;"></div>
+<div id="blog_foot" style="font-size:12px; padding-top:22px; color:#666; line-height:22px;"></div>
 
-     <div id="test"></div>
+<div id="test"></div>
 <script>
 (function(window, $) {
 var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
@@ -177,6 +178,7 @@ window[callback] = function(json) {
  $("#blog_title").html(data_t[4].v);
  $("#blog_intro").html(data_t[5].v);
  $("#blog_content").html(data_t[6].v);
+ $("#blog_foot").html(data_t[8].v + "　" + data_t[9].v);
  /*
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
