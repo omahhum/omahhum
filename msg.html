@@ -1,0 +1,41 @@
+<!------------------------------------------------------------------->
+<div id="test"></div>
+<script>
+(function(window, $) {
+var t_url = new URL(document.URL);
+var url_p = t_url.searchParams;
+var content_no = url_p.get("no");
+//var class_name = url_p.get("cname");
+
+//$("#class_title").html("["+class_name+"] ");
+
+if(content_no == "" || !url_p.has("no")){
+  alert("資料錯誤");
+      //$("#blog_title").html("無此文章存在");
+  //location.href="http://omahhum.yebi.tw";
+  reuten;
+};
+var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
+    gid = "2102204550", // 工作表代號
+    sql = "select * where B="+content_no+" order by A desc", // SQL 語法
+    callback = "callback"; // 回呼函數名稱
+$.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
+window[callback] = function(json) {
+  var rowArray = json.table.rows,
+  rowLength = rowArray.length,
+  html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
+  h_tr1 = "<tr style='background-color:' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;&#39;;'>",
+  i, j, dataGroup, dataLength;
+  
+  for (i = 0; i < rowLength; i++) {
+    dataGroup = rowArray[i].c;
+    dataLength = dataGroup.length;
+    html +=  h_tr1 + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+    html +=  "<td width='100px'>"+dataGroup[4].v+"</td>";
+    html +=  "<td width='150px'>"+dataGroup[5].v+"</td></tr>";
+   }
+     $("#test").html(html+"</table>");
+};
+})(window, jQuery);
+</script>
+<!------------------------------------------------------------------->
