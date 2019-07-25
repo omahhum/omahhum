@@ -34,7 +34,12 @@ window[callback] = function(json) {
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
-    html +=  h_tr + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+    
+    if(i\2==0){
+        html +=  h_tr1 + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+    }else{
+        html +=  h_tr2 + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+    }  
     html +=  "<td width='100px'>"+dataGroup[4].v+"</td>";
     html +=  "<td width='150px'>"+dataGroup[5].v+"</td></tr>";
    }
