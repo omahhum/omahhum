@@ -27,7 +27,7 @@ window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
-  h_tr1 = "<tr style='background-color:' onmouseover='this.style.backgroundColor=#efefff' onmouseout='this.style.backgroundColor='>",
+  h_tr1 = "<tr style='background-color:#ffffff' onmouseover='this.style.backgroundColor=#efefff' onmouseout='this.style.backgroundColor=#ffffff'>",
   h_tr2 = "<tr style='background-color:#eeeeff' onmouseover='this.style.backgroundColor=#efefff' onmouseout='this.style.backgroundColor=#eeeeff'>",
   i, j, dataGroup, dataLength;
   
@@ -36,11 +36,11 @@ window[callback] = function(json) {
     dataLength = dataGroup.length;
     
     if(i % 2==0){
-        html +=  h_tr1 + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr1 + "<td width='100px'>"+ dataGroup[2].v + "</td>";
     }else{
-        html +=  h_tr2 + "<td width='300px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr2 + "<td width='100px'>"+ dataGroup[2].v + "</td>";
     }  
-    html +=  "<td width='100px'>"+dataGroup[4].v+"</td>";
+    html +=  "<td width='300px'>"+dataGroup[4].v+"</td>";
     html +=  "<td width='150px'>"+dataGroup[5].v+"</td></tr>";
    }
      $("#test").html(html+"</table>");
