@@ -8,10 +8,11 @@
 
 <div id="test"></div>
 <script>
+  var content_no;
 (function(window, $) {
 var t_url = new URL(document.URL);
 var url_p = t_url.searchParams;
-var content_no = url_p.get("no");
+content_no = url_p.get("no");
 
  if(content_no == "" || !url_p.has("no")){
   alert("資料錯誤");
@@ -57,7 +58,22 @@ window[callback] = function(json) {
 })(window, jQuery);
 </script>
 
+<iframe id="list_msg" src="msg.html" width="100%" height="480" overflow=auto frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>       
         
-        
-        
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+<form action="https://script.google.com/macros/s/1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0/exec" method="post" target="hidden_iframe">
+<input type="hidden" name="method" value="write" />
+<input type="hidden" name="no" value="0" />
+<input type="hidden" id="msg_content" name="content_id" value="123" />
+<input type="text" name="nick_name" placeholder="填入匿稱" title="填入匿稱" /><br/>
+<input type="text" name="email" placeholder="填入Email" title="填入Email" /><br/>
+<input type="text" name="msg" placeholder="留言內容" title="留言內容" /><br/>
+<input type="submit" value="提交" />
+</form>
+
+<script>
+$("#list_msg").attr("src","msg.html?no="+content_no);
+$("#msg_content").attr("value",content_no);
+</script> 
+
 <!------------------------------------------------------------------->
