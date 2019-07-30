@@ -25,18 +25,17 @@ $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback
 window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
-  html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
-  h_tr = "<tr style='background-color:' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;&#39;;'>",
+  html = "<div id='msg_table'>",
   i, j, dataGroup, dataLength;
   
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
-    html +=  h_tr + "<td width='300px'>"+ dataGroup[2].v + "</td>";
-    html +=  "<td width='100px'>"+dataGroup[4].v+"</td>";
-    html +=  "<td width='150px'>"+dataGroup[5].v+"</td></tr>";
+    html +=  "<div style='color:#f00'>"+ dataGroup[2].v + "</div>";
+    html +=  "<div>"+dataGroup[5].v+"</div>";
+    html +=  "<div>"+dataGroup[4].v+"</div>";
    }
-     $("#test").html(html+"</table>");
+     $("#test").html(html+"</div>");
 };
 })(window, jQuery);
 </script>
