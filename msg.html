@@ -18,7 +18,7 @@ if(content_no == "" || !url_p.has("no")){
   reuten;
 };
 var sheetID = "1_3_sJ7yIBf9XV_UiC0hEuNA0IhDhVOLvqBxpFnVxdKQ", // 試算表代號
-    gid = "2102204550", // 工作表代號
+    gid = "1474188795", // 工作表代號
     sql = "select * where B="+content_no+" order by A", // SQL 語法
     callback = "callback"; // 回呼函數名稱
 $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
