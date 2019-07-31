@@ -63,7 +63,7 @@ window[callback] = function(json) {
 <iframe name="hidden_iframe" width=500 height=300></iframe>
 <form action="https://script.google.com/macros/s/AKfycbxfJtomFl3JxpVZnkl2aUFzEB76-JtCNpIp6PrWn3K0FXSqNPEW/exec" method="post" target="hidden_iframe">
 <input type="hidden" name="method" value="write" />
-<input type="text" id="msg_content" name="content_id" value="123" />
+<input type="text" id="content_id" name="content_id" value="123" />
 <input type="text" name="nick_name" placeholder="填入匿稱" title="填入匿稱" /><br/>
 <input type="text" name="email" placeholder="填入Email" title="填入Email" /><br/>
 <input type="text" name="msg" placeholder="留言內容" title="留言內容" size=35/><br/>
@@ -72,7 +72,7 @@ window[callback] = function(json) {
 
 <script>
 $("#list_msg").attr("src","msg.html?no="+content_no);
-$("#msg_content").attr("value",content_no);
+$("#content_id").attr("value",content_no);
 </script> 
 
 <!------------------------------------------------------------------->
