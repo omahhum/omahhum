@@ -100,11 +100,12 @@ window[callback] = function(json) {
 $("#list_msg").attr("src","msg.html?no="+content_no);
 </script>
 
+<iframe id="list_msg" src="msg.html" width="100%" height="480" overflow=auto frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe> 
         
-        
-<iframe id="blog_msg" src="https://docs.google.com/forms/d/e/1FAIpQLSdRPcJLvKvBLDctI1wGAkY0UCdf87jxlK-1UBqY8BmJYSW8AA/viewform?usp=pp_url&entry.1267913374=123&embedded=true" width="640" height="791" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>       
+<iframe id="post_msg" src="https://docs.google.com/forms/d/e/1FAIpQLSdRPcJLvKvBLDctI1wGAkY0UCdf87jxlK-1UBqY8BmJYSW8AA/viewform?usp=pp_url&entry.1267913374=123&embedded=true" width="640" height="791" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>       
 <script>
-$("#blog_msg").attr("src","https://docs.google.com/forms/d/e/1FAIpQLSdRPcJLvKvBLDctI1wGAkY0UCdf87jxlK-1UBqY8BmJYSW8AA/viewform?usp=pp_url&embedded=true&entry.1267913374="+content_no);
+$("#list_msg").attr("src","msg.html?no="+content_no);
+$("#post_msg").attr("src","https://docs.google.com/forms/d/e/1FAIpQLSdRPcJLvKvBLDctI1wGAkY0UCdf87jxlK-1UBqY8BmJYSW8AA/viewform?usp=pp_url&embedded=true&entry.1267913374="+content_no);
 </script>
 <!------------------------------------------------------------------->
  </td>
