@@ -105,15 +105,14 @@ window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
-  h_tr1 = "<tr style='background-color:' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;&#39;;'>",
+  h_tr1 = "<tr style='font-size:15px; background-color:' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;&#39;;'>",
   i, j, dataGroup, dataLength;
   
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
 
-    html +=  h_tr1 + "<td width='300px'><a href='blog.htm?no="+dataGroup[1].v+"' target='_blank'>"+ dataGroup[4].v + "</a></td>";
-    html +=  "<td width='100px'><a href='http://omahhum.yebi.tw/'>"+class_name+"</a></td>";
+    html +=  h_tr1 + "<td width='400px'><a href='blog.htm?no="+dataGroup[1].v+"' target='_blank'>"+ dataGroup[4].v + "</a></td>";
     html +=  "<td width='150px'>"+dataGroup[8].v+"</td></tr>";
     html +=  "<tr><td colspan='3' style='padding:10px; padding-left:30px'>"+dataGroup[5].v+"</td></tr>";
    }
