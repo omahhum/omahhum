@@ -32,7 +32,7 @@ window[callback] = function(json) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
     html +=  "<hr><div style='color:#f00'>"+ dataGroup[2].v + "</div>";
-    html +=  "<div><span style='color:#0ff'>"+(rowLength-i)+"樓</span> "+dataGroup[1].v.replace(new RegExp("Date", "g"), "")+"</div>";
+    html +=  "<div><span style='color:#099'>"+(rowLength-i)+"樓</span> "+dataGroup[1].v.replace(new RegExp("Date", "g"), "")+"</div>";
     html +=  "<div>"+dataGroup[3].v+"</div>";
    }
      $("#test").html(html+"</div>");
