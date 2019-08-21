@@ -10,11 +10,13 @@
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="KEYWORDS" content="顯雨身心靈工作坊,顯雨,聖曼陀羅,聖輪宗,十萬佛塔,佛碟,輪藏,星靈,神念">
+<meta content='blogger' name='generator'/>
 <title>閒雲‧顯雨</title>
 
   <link rel=stylesheet type="text/css" href="blog.css">
   
 <!-- Facebook og 與 Google meta 設定 begin -->
+<meta content='閒雲‧顯雨|顯雨身心靈工作坊' property='og:site_name'/>
 <meta content='.' name='description'/>
 <meta content='.' property='og:url'/>
 <meta content='.' property='og:description' name="og:description"/>
@@ -22,7 +24,7 @@
 <meta itemprop='keywords' content='顯雨,聖曼陀羅,聖輪宗,十萬佛塔,佛碟,輪藏,星靈,神念'/>
 <meta property='article:author' content='https://www.facebook.com/SpiritstarFoundation/'/>
 <meta property='og:type' content='blog'/>
-<meta property='og:title' itemprop='name' conntent='.'/>
+<meta property='og:title' itemprop='name' content='.'/>
 <!-- Facebook og 與 Google meta 設定 end -->
   
 </head>
@@ -110,8 +112,8 @@ window[callback] = function(json) {
  $("#blog_foot").html(data_t[8].v + "　作者：" + data_t[9].v);
   
   //改meta
-  $('meta[property="og:title"]').attr('content',data_t[4].v );
-  $('meta[name="og:title"]').attr('content',data_t[4].v );
+  $('meta[property="og:title"]').attr('content',data_t[4].v +"|顯雨身心靈工作坊");
+  $('meta[name="og:title"]').attr('content',data_t[4].v  +"|顯雨身心靈工作坊");
   $('meta[property="og:description"]').attr('content',data_t[6].v );
   $('meta[name="og:description"]').attr('content',data_t[6].v );
 };
