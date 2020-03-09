@@ -32,11 +32,11 @@ window[callback] = function(json) {
     };
     html +=  "<td width='300px'>"+dataGroup[3].v+"</td>";
     var vD = String(dataGroup[1].v);
-    vD.replace("Date(","");
-    vD.replace(")","");
+    vD = vD.replace("Date(","");
+    vD = vD.replace(")","");
     var vDate = vD.split(",");
     //html +=  "<td width='150px'>"+dataGroup[1].v+"</td></tr>";
-    html +=  "<td width='150px'>"+vDate[0]+"/"+vDate[1]+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+"</td></tr>";
+    html +=  "<td width='150px'>"+vDate[0]+"/"+vDate[1]+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</td></tr>";
    }
      $("#test").html(html+"</table>");
 };
