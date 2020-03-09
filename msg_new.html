@@ -31,7 +31,11 @@ window[callback] = function(json) {
         html +=  h_tr2 + dataGroup[4].v+"&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
     };
     html +=  "<td width='300px'>"+dataGroup[3].v+"</td>";
-    html +=  "<td width='150px'>"+dataGroup[1].v+"</td></tr>";
+    dataGroup[1].v.replace("Date(","");
+    dataGroup[1].v.replace(")","");
+    var vDate = dataGroup[1].v.split(",");
+    //html +=  "<td width='150px'>"+dataGroup[1].v+"</td></tr>";
+    html +=  "<td width='150px'>"+vDate[0]+"/"+vDate[1]+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+"</td></tr>";
    }
      $("#test").html(html+"</table>");
 };
