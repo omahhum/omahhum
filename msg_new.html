@@ -26,9 +26,9 @@ window[callback] = function(json) {
     dataLength = dataGroup.length;
     
     if(i % 2==0){
-        html +=  h_tr1 + dataGroup[4].v+"&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr1 + dataGroup[4].v+"&#39;;#msg'><td width='100px'>"+ dataGroup[2].v + "</td>";
     }else{
-        html +=  h_tr2 + dataGroup[4].v+"&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr2 + dataGroup[4].v+"&#39;;#msg'><td width='100px'>"+ dataGroup[2].v + "</td>";
     };
     html +=  "<td width='300px'>"+dataGroup[3].v+"</td>";
     var vD = String(dataGroup[1].v);
