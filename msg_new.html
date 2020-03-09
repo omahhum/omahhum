@@ -36,7 +36,7 @@ window[callback] = function(json) {
     vD = vD.replace(")","");
     var vDate = vD.split(",");
     //html +=  "<td width='150px'>"+dataGroup[1].v+"</td></tr>";
-    html +=  "<td width='150px'>"+vDate[0]+"/"+(vDate[1].parseInt()+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</td></tr>";
+    html +=  "<td width='150px'>"+vDate[0]+"/"+(parseInt(vDate[1])+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</td></tr>";
    }
      $("#test").html(html+"</table>");
 };
