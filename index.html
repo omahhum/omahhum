@@ -107,7 +107,12 @@ window[callback] = function(json) {
     dataLength = dataGroup.length;
     html +=  h_tr1 + "<td width='300px'><a href='blog.htm?no="+dataGroup[1].v+"' target='_blank'>"+ dataGroup[4].v + "</a></td>";
     html +=  "<td width='100px'><a href='http://omahhum.yebi.tw/list.htm?cno=" +dataGroup[0].v+ "&cname=" +dataGroup[2].v+ "'>" +dataGroup[2].v+ "</a></td>";
-    html +=  "<td width='150px'>"+dataGroup[8].v+"</td></tr>";
+var vD = String(dataGroup[8].v);
+    vD = vD.replace("Date(","");
+    vD = vD.replace(")","");
+    var vDate = vD.split(",");
+    //html +=  "<td width='150px'>"+dataGroup[8].v+"</td></tr>";
+    html +=  "<td width='150px'>"+vDate[0]+"/"+(parseInt(vDate[1])+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</td></tr>";
    }
      $("#test").html(html+"</table>");
 };
