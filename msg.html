@@ -4,14 +4,23 @@
 <div id="test"></div>
 <script>
 (function(window, $) {
-var t_url = new URL(document.URL);
-var url_p = t_url.searchParams;
-var content_no = url_p.get("no");
+    (function ($) { 
+               $.getUrlParam = function (name) { 
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg); 
+                    if (r != null) return unescape(r[2]); return null; 
+               } 
+           })(jQuery); 
+           var content_no = $.getUrlParam('no'); 
+
+//var t_url = new URL(document.URL);
+//var url_p = t_url.searchParams;
+//var content_no = url_p.get("no");
 //var class_name = url_p.get("cname");
 
 //$("#class_title").html("["+class_name+"] ");
 
-if(content_no == "" || !url_p.has("no")){
+if(content_no == ""){
   alert("資料錯誤");
       //$("#blog_title").html("無此文章存在");
   //location.href="http://omahhum.yebi.tw";

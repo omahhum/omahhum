@@ -70,7 +70,7 @@
     </tbody></table>
 <!------------------------------------------------------------------->
 
-<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
      
 <div id="blog_title" style="font-size:22px; color:#369; font-weight:bolder; padding-top:48px;"></div>
 <div id="blog_intro" style="font-size:18px; padding-top:22px; color:#333; line-height:22px;"></div>
@@ -80,58 +80,69 @@
 <a name="msg"></a>
 <div id="test"></div>
 <script>
-  var content_no;
-(function(window, $) {
-var t_url = new URL(document.URL);
-var url_p = t_url.searchParams;
-content_no = url_p.get("no");
- if(content_no == "" || !url_p.has("no")){
-  alert("資料錯誤");
-      //$("#blog_title").html("無此文章存在");
-  location.href="http://omahhum.yebi.tw";
-  reuten;
-};
-var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
-    gid = "629801742", // 工作表代號
-    sql = "select * where B=" + content_no, // SQL 語法
-    callback = "callback"; // 回呼函數名稱
-var go_url = "https://spreadsheets.google.com/tq?tqx=responseHandler:callback&tq=" + sql + "&key=" + sheetID + "&gid=" + gid;
-//$("#blog_intro").html(go_url);
-     //
-     $.getScript(go_url);
-window[callback] = function(json) {
-  var rowArray = json.table.rows,
-  rowLength = rowArray.length,
-  html = "<br/>",
-  data_t,
-  i, j, dataGroup, dataLength;
-     
- $("#blog_intro").html(rowArray[0]);
- data_t = rowArray[0].c; 
- $("#blog_title").html(data_t[4].v);
- $("#blog_intro").html(data_t[5].v);
- //$("#blog_content").html(data_t[6].v.replace(new RegExp("\n", "g"), "<br>"));
- $("#blog_content").html(data_t[6].v);
- var vD = String(data_t[8].v);
-    vD = vD.replace("Date(","");
-    vD = vD.replace(")","");
-    var vDate = vD.split(",");
- //$("#blog_foot").html(data_t[8].v + "　作者：" + data_t[9].v);
- $("#blog_foot").html(vDate[0]+"/"+(parseInt(vDate[1])+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+ "　作者：" + data_t[9].v);
-  
-  //改meta
-  $('meta[property="og:title"]').attr('content',data_t[4].v +"|顯雨身心靈工作坊");
-  $('meta[name="og:title"]').attr('content',data_t[4].v  +"|顯雨身心靈工作坊");
-  $('meta[property="og:description"]').attr('content',data_t[6].v );
-  $('meta[name="og:description"]').attr('content',data_t[6].v );
-};
-   $(window).error(function(){
-     alert("資料錯誤");
-      //$("#blog_title").html("無此文章存在");
-     location.href="http://omahhum.yebi.tw";
-     //reuten;
-     });
-})(window, jQuery);
+    (function ($) { 
+               $.getUrlParam = function (name) { 
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg); 
+                    if (r != null) return unescape(r[2]); return null; 
+               } 
+           })(jQuery); 
+           var content_no = $.getUrlParam('no'); 
+
+    //var t_url = new URL(location.href);
+    //var url_p = t_url.searchParams;
+    //alert(content_no);
+    //var content_no = t_url.searchParams.get('no');
+    (function (window, $) {
+
+
+        if (content_no == "") {
+            alert("資料錯誤");
+            //$("#blog_title").html("無此文章存在");
+            location.href = "http://omahhum.yebi.tw";
+            reuten;
+        };
+        var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
+        gid = "629801742", // 工作表代號
+        sql = "select * where B=" + content_no, // SQL 語法
+        callback = "callback"; // 回呼函數名稱
+        var go_url = "https://spreadsheets.google.com/tq?tqx=responseHandler:callback&tq=" + sql + "&key=" + sheetID + "&gid=" + gid;
+        //$("#blog_intro").html(go_url);
+        //
+        $.getScript(go_url);
+        window[callback] = function (json) {
+            var rowArray = json.table.rows,
+      rowLength = rowArray.length,
+      html = "<br/>",
+      data_t,
+      i, j, dataGroup, dataLength;
+
+            $("#blog_intro").html(rowArray[0]);
+            data_t = rowArray[0].c;
+            $("#blog_title").html(data_t[4].v);
+            $("#blog_intro").html(data_t[5].v);
+            //$("#blog_content").html(data_t[6].v.replace(new RegExp("\n", "g"), "<br>"));
+            $("#blog_content").html(data_t[6].v);
+            var vD = String(data_t[8].v);
+            vD = vD.replace("Date(", "");
+            vD = vD.replace(")", "");
+            var vDate = vD.split(",");
+            //$("#blog_foot").html(data_t[8].v + "　作者：" + data_t[9].v);
+            $("#blog_foot").html(vDate[0] + "/" + (parseInt(vDate[1]) + 1) + "/" + vDate[2] + " " + vDate[3] + ":" + vDate[4] + ":" + vDate[5] + "　作者：" + data_t[9].v);
+
+            //改meta
+            $('meta[property="og:title"]').attr('content', data_t[4].v + "|顯雨身心靈工作坊");
+            $('meta[name="og:title"]').attr('content', data_t[4].v + "|顯雨身心靈工作坊");
+            $('meta[property="og:description"]').attr('content', data_t[6].v);
+            $('meta[name="og:description"]').attr('content', data_t[6].v);
+        };
+        $(window).error(function () {
+            alert("資料錯誤");
+            //$("#blog_title").html("無此文章存在");
+            location.href = "http://omahhum.yebi.tw";
+            //reuten;
+        });
+    })(window, jQuery);
 </script>
 
 <iframe id="list_msg" src="msg.html" width="640" height="300" overflow=auto frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>       

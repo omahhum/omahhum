@@ -1,0 +1,176 @@
+<html><head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145045257-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145045257-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="KEYWORDS" content="顯雨身心靈工作坊">
+<title>閒雲‧顯雨</title>
+<link rel=stylesheet type="text/css" href="blog.css">
+
+<body topmargin="0" leftmargin="0">
+<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+<center>
+<table id="blog_table" class="blog_table" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+  <tbody><tr>
+   <td width="100%">
+   <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;" width="100%" class="banner">
+     <tbody><tr>
+      <td width="-170" valign="top"><style>
+.L_td .module_small {width:150px}
+.R_td .module_small {width:190px}
+</style></td>
+      <td width="0" valign="top">　</td>
+     </tr>
+   </tbody></table>
+   </td>
+  </tr>
+<!--  <tr>
+   <td width="100%">
+   </td>
+  </tr>-->
+  <tr>
+   <td width="100%" class="blog_main">
+<div class="blog_menu" id="blog_menu"></div>
+<script>
+	$("#blog_menu").load("blog_menu.html");
+</script>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+  <tbody><tr>
+    
+    <td height="300" valign="top" class="L_td" width="20%">
+    <!--左模組區-->
+    <table height="5">
+      <tbody><tr>
+        <td></td>
+      </tr>
+    </tbody></table>
+    
+<div id="l_nav"></div>
+<script>
+	$("#l_nav").load("l.html");
+</script>
+	
+
+	 </td>
+    
+    <td valign="top" class="M_td" width="60%">
+    <!--中模組區-->
+    <table height="5">
+      <tbody><tr>
+        <td></td>
+      </tr>
+    </tbody></table>
+    
+<div align="center" style="padding:8px"><a href="http://omahhum.yebi.tw/blog.htm?no=457"><img src="pics/omahhum_ad.gif" border="0"></a></div>
+
+<div style="height:10px"></div>
+<div style="font-size:18px; margin-left:30px; margin-right:30px; padding:5px; background-color:#7cf; color:#fff">最新文章 :</div>
+<div style="font-size:13px; padding-left:30px;">
+	
+	<table style="font-size:13px; padding-top:5px" cellpadding="2" cellspacing="0" width="100%">
+		<tbody><tr style="color:#c69">
+		<td width="300px">文章主題</td>
+		<td width="100px">文章分類</td>
+		<td width="150px">發佈時間</td>
+		</tr>
+	</tbody></table>
+
+<!------------------------------------------------------------------->
+<div id="test"></div>
+<script>
+(function(window, $) {
+var sheetID = "1LwdLGdSX6QtZ-3RsmCDN7dLSK5bL9DeLkP5jPcvdlq0", // 試算表代號
+    gid = "629801742", // 工作表代號
+    sql = "select * order by B desc limit 10", // SQL 語法
+    callback = "callback"; // 回呼函數名稱
+$.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid);
+
+window[callback] = function(json) {
+  var rowArray = json.table.rows,
+  rowLength = rowArray.length,
+  html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
+  h_tr1 = "<tr style='background-color:' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;&#39;;'>",
+  i, j, dataGroup, dataLength;
+  
+  for (i = 0; i < rowLength; i++) {
+    dataGroup = rowArray[i].c;
+    dataLength = dataGroup.length;
+    html +=  h_tr1 + "<td width='300px'><a href='blog.htm?no="+dataGroup[1].v+"' target='_blank'>"+ dataGroup[4].v + "</a></td>";
+    html +=  "<td width='100px'><a href='http://omahhum.yebi.tw/list.htm?cno=" +dataGroup[0].v+ "&cname=" +dataGroup[2].v+ "'>" +dataGroup[2].v+ "</a></td>";
+var vD = String(dataGroup[8].v);
+    vD = vD.replace("Date(","");
+    vD = vD.replace(")","");
+    var vDate = vD.split(",");
+    //html +=  "<td width='150px'>"+dataGroup[8].v+"</td></tr>";
+    html +=  "<td width='150px'>"+vDate[0]+"/"+(parseInt(vDate[1])+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</td></tr>";
+   }
+     $("#test").html(html+"</table>");
+};
+})(window, jQuery);
+</script>
+<!------------------------------------------------------------------->
+	
+</div>
+<div style="height:20px"></div>
+<div style="font-size:18px; margin-left:30px; margin-right:30px; padding:5px; background-color:#5cf; color:#fff">最新訊息 :</div>
+<div style="width:600px; padding-left:30px; padding-top:25px;">
+
+<br/>
+	*<br>
+網站文章改為靜態頁。<br/>
+測試期間如有顯示異常，我們會儘快改進，造成閱讀困擾請大家包涵。<br/>
+2020/10/14<br/>
+	*<br>
+網站日期時間異常已修復。<br/>
+2020/03/10<br/>
+
+	    </div>
+
+<div style="height:20px"></div>	    
+<div style="font-size:18px; margin-left:30px; margin-right:30px; padding:5px; background-color:#7cf; color:#fff">最新留言 :</div>
+<div style="height:10px"></div>
+<div style="width:600px; padding-left:30px; padding-right:25px;">
+<iframe src="msg_new.html" board="0" width="100%" height="500px"></iframe>
+</div>
+
+
+</td>
+    
+    <td valign="top" class="R_td" width="20%">
+    <!--右模組區-->
+    <table height="5">
+      <tbody><tr>
+        <td></td>
+      </tr>
+    </tbody></table>
+     <p></p>
+
+<div id="r_nav"></div>
+<script>
+	$("#r_nav").load("r.html");
+</script>
+
+    
+	 </td>
+    
+  </tr>
+</tbody></table>
+
+   </td>
+  </tr>
+<!--  <tr>
+   <td width="100%" height="0"></td>
+  </tr> -->
+  <tr>
+   <td width="100%" align="center" class="b_bottom"></td>
+  </tr>
+</tbody></table>
+　<p>　</p>
+</center>
+
+</body></html>
