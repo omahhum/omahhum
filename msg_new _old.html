@@ -17,8 +17,8 @@ window[callback] = function(json) {
   var rowArray = json.table.rows,
   rowLength = rowArray.length,
   html = "<table style='font-size:13px;' cellpadding='2' cellspacing='0' width='100%'>",
-  h_tr1 = "<tr style='background-color:#ffffff;' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;#ffffff&#39;;' onclick='parent.location.href=&#39;/blog/",
-  h_tr2 = "<tr style='background-color:#eeeeff;' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;#eeeeff&#39;;' onclick='parent.location.href=&#39;/blog/",
+  h_tr1 = "<tr style='background-color:#ffffff;' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;#ffffff&#39;;' onclick='parent.location.href=&#39;blog.htm?no=",
+  h_tr2 = "<tr style='background-color:#eeeeff;' onmouseover='this.style.backgroundColor=&#39;#efefff&#39;;' onmouseout='this.style.backgroundColor=&#39;#eeeeff&#39;;' onclick='parent.location.href=&#39;blog.htm?no=",
   i, j, dataGroup, dataLength;
   
   for (i = 0; i < rowLength; i++) {
@@ -26,9 +26,9 @@ window[callback] = function(json) {
     dataLength = dataGroup.length;
     
     if(i % 2==0){
-        html +=  h_tr1 + dataGroup[4].v+".htm#msg&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr1 + dataGroup[4].v+"#msg&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
     }else{
-        html +=  h_tr2 + dataGroup[4].v+".htm#msg&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
+        html +=  h_tr2 + dataGroup[4].v+"#msg&#39;;'><td width='100px'>"+ dataGroup[2].v + "</td>";
     };
     html +=  "<td width='300px'>"+dataGroup[3].v+"</td>";
     var vD = String(dataGroup[1].v);
