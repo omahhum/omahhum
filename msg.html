@@ -40,8 +40,13 @@ window[callback] = function(json) {
   for (i = 0; i < rowLength; i++) {
     dataGroup = rowArray[i].c;
     dataLength = dataGroup.length;
+    var vD = String(dataGroup[1].v);
+    vD = vD.replace("Date(","");
+    vD = vD.replace(")","");
+    var vDate = vD.split(",");
     html +=  "<hr><div style='color:#f00'>"+ dataGroup[2].v + "</div>";
-    html +=  "<div><span style='color:#099'>"+(rowLength-i)+"樓</span> "+dataGroup[1].v.replace(new RegExp("Date", "g"), "")+"</div>";
+    //html +=  "<div><span style='color:#099'>"+(rowLength-i)+"樓</span> "+dataGroup[1].v.replace(new RegExp("Date", "g"), "")+"</div>";
+    html +=  "<div><span style='color:#099'>"+(rowLength-i)+"樓</span> "+vDate[0]+"/"+(parseInt(vDate[1])+1)+"/"+vDate[2]+" "+vDate[3]+":"+vDate[4]+":"+vDate[5]+"</div>";
     html +=  "<div>"+dataGroup[3].v+"</div>";
    }
      $("#test").html(html+"</div>");
