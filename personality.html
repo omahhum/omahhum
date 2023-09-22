@@ -7,11 +7,19 @@
 </body>
 <script language="javascript">
   function get_no(no){
-    document.getElementById("no_"+no).value = Math.floor(Math.random() * 74)+1;
+    var cc;
+    do{
+      cc=0;
+      document.getElementById("no_"+no).value = Math.floor(Math.random() * 74)+1;
+      for(i==1;i++;1<5){
+        cc=cc+check_no(i,no);
+      }
+    }while(cc>0);
   }
+  
   function check_no(t_id,no){
-    if(Number(document.getElementById("no_"+t_id).value)==no){
-      retuen(false);
+    if(Number(document.getElementById("no_"+t_id).value)==Number(document.getElementById("no_"+no).value)){
+      retuen(1);
     }
   }
 </script>
