@@ -1,29 +1,38 @@
 <html>
 <body>
+<h1>※光圻靈的伊夏亞_人格原型卡 線上抽牌※</h1>
   <div>牌卡數字一：<input type="text" id="no_1" value="0"><input type="button" value="抽牌" onclick="get_no(1)"></div>
   <div>牌卡數字二：<input type="text" id="no_2" value="0"><input type="button" value="抽牌" onclick="get_no(2)"></div>
   <div>牌卡數字三：<input type="text" id="no_3" value="0"><input type="button" value="抽牌" onclick="get_no(3)"></div>
   <div>牌卡數字四：<input type="text" id="no_4" value="0"><input type="button" value="抽牌" onclick="get_no(4)"></div>
-  <input type="text" id="cc" value="0">
+<!--  <input type="text" id="cc" value="555">
+<div><input type="text" id="logs" value=""></div> -->
 </body>
 <script language="javascript">
   function get_no(no){
-    var cc;
+    var cc=0;
     do{
       cc=0;
       //document.getElementById("cc").value = cc;
       document.getElementById("no_"+no).value = Math.floor(Math.random() * 74)+1;
-      for(i==1;i++;1<5){
-        cc=cc+check_no(i,no);
-        document.getElementById("cc").value = document.getElementById("cc").value + cc;
+      for(var i=1;i<5;i++){
+        if(i!=no){
+		cc=cc+check_no(i,no);
+        //document.getElementById("cc").value = document.getElementById("cc").value + check_no(i,no);
+	//document.getElementById("logs").value = document.getElementById("logs").value + i;
+	}
       }
-      
+	//document.getElementById("cc").value = document.getElementById("cc").value + ";";
+	//document.getElementById("logs").value = document.getElementById("logs").value + ";";
     }while(cc>0);
+
   }
   
   function check_no(t_id,no){
-    if(Number(document.getElementById("no_"+t_id).value)==Number(document.getElementById("no_"+no).value)){
-      retuen(1);
+    if(Number(document.getElementById("no_"+t_id.toString()).value)==Number(document.getElementById("no_"+no.toString()).value)){
+	return(1);
+    }else{
+	return(0);
     }
   }
 </script>
