@@ -4,16 +4,20 @@
   <div>牌卡數字二：<input type="text" id="no_2" value="0"><input type="button" value="抽牌" onclick="get_no(2)"></div>
   <div>牌卡數字三：<input type="text" id="no_3" value="0"><input type="button" value="抽牌" onclick="get_no(3)"></div>
   <div>牌卡數字四：<input type="text" id="no_4" value="0"><input type="button" value="抽牌" onclick="get_no(4)"></div>
+  <input type="text" id="cc" value="0">
 </body>
 <script language="javascript">
   function get_no(no){
     var cc;
     do{
       cc=0;
+      document.getElementById("cc").value = cc;
       document.getElementById("no_"+no).value = Math.floor(Math.random() * 74)+1;
       for(i==1;i++;1<5){
         cc=cc+check_no(i,no);
+        document.getElementById("cc").value = document.getElementById("cc").value + cc;
       }
+      
     }while(cc>0);
   }
   
