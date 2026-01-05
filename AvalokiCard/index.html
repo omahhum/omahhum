@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>觀自在與手眼 - 無伺服器版 (V2)</title>
+    <style>
+        :root {
+            --primary-color: #5d4037;
+            --secondary-color: #8d6e63;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        h1, h2, h3 { text-align: center; color: var(--primary-color); }
+
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #eceff1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #c62828;
+        }
+
+        .card-display {
+            text-align: center;
+            margin-top: 20px;
+            min-height: 400px;
+        }
+
+        .card-img-box {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 20px auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+            transition: transform 0.5s ease;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .reversed-img { transform: rotate(180deg); }
+
+        .card-info {
+            text-align: left;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .divination-section {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .btn-generate {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .btn-generate:hover { background-color: var(--secondary-color); }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>觀自在與手眼靈性占卜系統 (免安裝版)</h1>
+
+    <div class="container">
+        <div class="panel">
+            <h2>25觀自在療癒卡</h2>
+            <div class="controls">
+                <select id="select-25"><option value="">-- 請選擇 25觀自在 --</option></select>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="check-reverse-25">
+                    <label for="check-reverse-25">逆位 (Reversed)</label>
+                </div>
+            </div>
+            <div class="card-display">
+                <div class="card-img-box">
+                    <img id="img-25" src="" alt="請選擇牌卡" style="display:none;">
+                    <p id="placeholder-25" style="padding:50px 0;color:#999;">請選擇牌卡</p>
+                </div>
+                <div id="info-25" class="card-info" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>42手眼智慧卡</h2>
+            <div class="controls">
+                <select id="select-42"><option value="">-- 請選擇 42手眼 --</option></select>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="check-reverse-42">
+                    <label for="check-reverse-42">逆位 (Reversed)</label>
+                </div>
+            </div>
+            <div class="card-display">
+                <div class="card-img-box">
+                    <img id="img-42" src="" alt="請選擇牌卡" style="display:none;">
+                    <p id="placeholder-42" style="padding:50px 0;color:#999;">請選擇牌卡</p>
+                </div>
+                <div id="info-42" class="card-info" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="divination-section">
+            <h3>🔮 占卜提示詞生成</h3>
+            <input type="text" id="divination-topic" placeholder="請輸入占卜內容 (例如：最近的事業運勢如何？)">
+            <button class="btn-generate" onclick="generatePrompt()">生成占卜提示詞</button>
+            <div id="result-area" style="display:none;">
+                <textarea id="prompt-output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="data25.js"></script>
+    <script src="data42.js"></script>
+
+    <script>
+        // 資料容器
+        let data25 = [];
+        let data42 = [];
+
+        // DOM 元素
+        const sel25 = document.getElementById('select-25');
+        const sel42 = document.getElementById('select-42');
+
+        // ==========================================
+        // 1. 初始化資料
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof RAW_HTML_25 === 'undefined' || typeof RAW_HTML_42 === 'undefined') {
+                alert("錯誤：找不到資料檔！\n請確認 data25.js 與 data42.js 是否存在。");
+                return;
+            }
+
+            data25 = parseHTML25(RAW_HTML_25);
+            data42 = parseHTML42(RAW_HTML_42); // 使用更新後的解析函式
+
+            initDropdowns();
+        });
+
+        // 25觀自在解析 (維持原樣)
+        function parseHTML25(htmlString) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            const entries = doc.querySelectorAll('.card-entry');
+            const result = [];
+
+            entries.forEach(entry => {
+                const id = entry.getAttribute('data-index');
+                const name = entry.querySelector('.card-title')?.textContent || '';
+                
+                let fullText = "";
+                entry.querySelectorAll('.data-section').forEach(sec => {
+                    const label = sec.querySelector('.label')?.textContent || '';
+                    const content = sec.querySelector('.content')?.textContent || '';
+                    fullText += `【${label}】：${content}\n`;
+                });
+                entry.querySelectorAll('.details-block').forEach(block => {
+                    const title = block.querySelector('.details-title')?.textContent || '';
+                    const content = block.querySelector('.content')?.textContent || '';
+                    const verse = block.querySelector('.verse')?.textContent || '';
+                    fullText += `\n=== ${title} ===\n`;
+                    if(verse) fullText += `(偈言：${verse})\n`;
+                    fullText += `${content}\n`;
+                });
+
+                result.push({
+                    id: id.padStart(2, '0'),
+                    name: name,
+                    fullText: fullText.trim()
+                });
+            });
+            return result;
+        }
+
+        // ★★★ 更新後的 42手眼解析函式 (針對新結構) ★★★
+        function parseHTML42(htmlString) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            // 新結構直接選取 article.hand-entry
+            const entries = doc.querySelectorAll('.hand-entry');
+            const result = [];
+
+            entries.forEach(entry => {
+                // 從 data-attribute 直接讀取資料，更準確
+                const idRaw = entry.getAttribute('data-id');
+                const id = idRaw.padStart(2, '0'); // 確保補零，如 01, 02
+                const name = entry.getAttribute('data-name');
+                const bodhisattva = entry.getAttribute('data-bodhisattva');
+                const dept = entry.getAttribute('data-dept');
+                const method = entry.getAttribute('data-method');
+                const func = entry.getAttribute('data-function');
+                
+                // 讀取內文與真言
+                const mantra = entry.querySelector('.mantra-box')?.textContent.trim() || '';
+                
+                // 組合顯示用的詳細文字
+                let fullText = `【部別】：${dept} - ${method}\n` +
+                               `【菩薩】：${bodhisattva}\n` +
+                               `【功用】：${func}\n`;
+
+                // 讀取所有 .info-row 內容 (包含描述等)
+                entry.querySelectorAll('.info-row').forEach(row => {
+                    // 移除標籤，只留純文字，讓格式整齊
+                    fullText += row.textContent.trim() + "\n";
+                });
+
+                if(mantra) {
+                    fullText += `\n【真言】：${mantra}`;
+                }
+
+                result.push({
+                    id: id,
+                    name: name,
+                    fullText: fullText.trim()
+                });
+            });
+
+            return result;
+        }
+
+        // ==========================================
+        // 2. 介面互動邏輯
+        // ==========================================
+        function initDropdowns() {
+            // 25 選單
+            data25.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.text = `${item.id}. ${item.name}`;
+                sel25.add(opt);
+            });
+            // 42 選單
+            data42.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.text = `${item.id}. ${item.name}`;
+                sel42.add(opt);
+            });
+        }
+
+        function updateDisplay(type) {
+            let select, imgBox, ph, info, reverseCheck, data;
+            
+            if(type === '25') {
+                select = sel25; imgBox = document.getElementById('img-25');
+                ph = document.getElementById('placeholder-25'); info = document.getElementById('info-25');
+                reverseCheck = document.getElementById('check-reverse-25'); data = data25;
+            } else {
+                select = sel42; imgBox = document.getElementById('img-42');
+                ph = document.getElementById('placeholder-42'); info = document.getElementById('info-42');
+                reverseCheck = document.getElementById('check-reverse-42'); data = data42;
+            }
+
+            const id = select.value;
+            if(!id) {
+                imgBox.style.display = 'none';
+                ph.style.display = 'block';
+                info.style.display = 'none';
+                return;
+            }
+
+            const item = data.find(d => d.id === id);
+            
+            // 圖片路徑假設為 25-01.png, 42-01.png
+            imgBox.src = `${type}-${id}.png`;
+            imgBox.style.display = 'block';
+            ph.style.display = 'none';
+            
+            // 正逆位旋轉
+            if(reverseCheck.checked) imgBox.classList.add('reversed-img');
+            else imgBox.classList.remove('reversed-img');
+
+            const status = reverseCheck.checked ? "(逆位)" : "(正位)";
+            info.style.display = 'block';
+            info.innerHTML = `<h3>${item.name} <span style="color:red">${status}</span></h3>${item.fullText}`;
+        }
+
+        sel25.addEventListener('change', () => updateDisplay('25'));
+        document.getElementById('check-reverse-25').addEventListener('change', () => updateDisplay('25'));
+        sel42.addEventListener('change', () => updateDisplay('42'));
+        document.getElementById('check-reverse-42').addEventListener('change', () => updateDisplay('42'));
+
+        // ==========================================
+        // 3. 提示詞生成
+        // ==========================================
+        function generatePrompt() {
+            const id25 = sel25.value;
+            const id42 = sel42.value;
+            const topic = document.getElementById('divination-topic').value.trim() || "綜合運勢";
+
+            if(!id25 && !id42) {
+                alert("請至少選擇一張牌卡！");
+                return;
+            }
+
+            const item25 = data25.find(d => d.id === id25);
+            const item42 = data42.find(d => d.id === id42);
+            const rev25 = document.getElementById('check-reverse-25').checked;
+            const rev42 = document.getElementById('check-reverse-42').checked;
+
+            let prompt = `你是一位精通佛法、靈性療癒與易經數理的專家。請根據以下使用者抽到的牌卡資訊，提供關於「${topic}」的靈性指引與占卜解析。
+
+請綜合以下要素進行解讀：
+1. **牌卡義理**：結合25觀自在的圓通法門與42手眼的濟世功用。
+2. **正逆位變化**：逆位代表能量的過度、不足、內化或阻滯，請具體說明。
+3. **靈性數字與籤文**：請提取牌面編號 (25觀自在 No.${id25 || '無'}, 42手眼 No.${id42 || '無'})，結合觀音籤文或靈性數字學進行解析。
+
+---
+【抽牌結果】
+`;
+            if(item25) prompt += `\n1. **25觀自在療癒卡**：\n   - 牌名：${item25.name} ${rev25 ? '(逆位)' : '(正位)'}\n   - 完整資訊：\n${item25.fullText}\n`;
+            if(item42) prompt += `\n2. **42手眼智慧卡**：\n   - 牌名：${item42.name} ${rev42 ? '(逆位)' : '(正位)'}\n   - 完整資訊：\n${item42.fullText}\n`;
+
+            prompt += `\n---\n請給出具體的建議與行動方案，並以溫暖、啟發性的語氣回答。`;
+            
+            const output = document.getElementById('prompt-output');
+            output.value = prompt;
+            document.getElementById('result-area').style.display = 'block';
+            output.scrollIntoView({behavior: "smooth"});
+        }
+    </script>
+</body>
+</html>
