@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聖輪宗2026每月法會參贊報名表</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: #e8e4df;
+      color: #333;
+      line-height: 1.6;
+      min-width: 1100px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+    h1 { text-align: center; color: #5D4037; margin-bottom: 8px; font-size: 1.6rem; }
+    .intro {
+      text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 24px;
+      padding: 12px; background: #fff; border-radius: 12px; border: 2px solid #d7ccc8;
+    }
+    .intro strong { color: #d32f2f; }
+
+    /* Form Info Bar */
+    .form-info-bar {
+      display: flex; gap: 24px; padding: 16px 24px; background: #fff;
+      border-radius: 12px; margin-bottom: 24px; border: 2px solid #bcaaa4;
+    }
+    .form-info-item { flex: 1; }
+    .form-info-item label { display: block; font-weight: bold; color: #5D4037; margin-bottom: 6px; font-size: 0.95rem; }
+    .form-info-item input {
+      width: 100%; padding: 10px 12px; border: 1px solid #ccc;
+      border-radius: 8px; font-size: 1rem; font-family: inherit;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-info-item input:focus {
+      outline: none; border-color: #8B4513;
+      box-shadow: 0 0 0 3px rgba(139,69,19,0.1);
+    }
+
+    /* Section Blocks */
+    .section-block {
+      background: #fff; border-radius: 16px; margin-bottom: 32px;
+      overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .section-header {
+      padding: 20px 28px; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .section-header h2 { font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+    .section-header .section-actions { display: flex; gap: 12px; }
+
+    .offering-section .section-header { background: linear-gradient(135deg, #8B4513, #A0522D); }
+    .plaque-section .section-header { background: linear-gradient(135deg, #4E342E, #6D4C41); }
+    .personal-section .section-header { background: linear-gradient(135deg, #5E35B1, #7E57C2); }
+
+    .add-btn {
+      padding: 10px 20px; border: 2px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.15); color: #fff; border-radius: 8px;
+      font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s;
+    }
+    .add-btn:hover { background: rgba(255,255,255,0.3); border-color: #fff; }
+
+    .section-content { padding: 24px 28px; }
+
+    .supporter-table { width: 100%; border-collapse: collapse; background: #fafaf8; border-radius: 12px; overflow: hidden; }
+    .supporter-table thead th {
+      padding: 12px 8px; text-align: center; font-size: 0.9rem;
+      background: #f0ebe8; color: #5D4037; border-bottom: 2px solid #d7ccc8;
+    }
+    .supporter-table thead th:first-child { border-radius: 12px 0 0 0; }
+    .supporter-table thead th:last-child { border-radius: 0 12px 0 0; }
+    .supporter-table tbody tr { border-bottom: 1px solid #eee; transition: background 0.2s; }
+    .supporter-table tbody tr:hover { background: #fff8f0; }
+    .supporter-table tbody td { padding: 10px 8px; vertical-align: top; text-align: center; }
+    .supporter-row td { background: #fff; }
+
+    .supporter-table input[type="text"],
+    .supporter-table input[type="number"],
+    .supporter-table select,
+    .supporter-table textarea {
+      width: 100%; padding: 8px 10px; border: 1px solid #ccc;
+      border-radius: 6px; font-size: 0.95rem; font-family: inherit;
+      background: #fff; transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .supporter-table input:focus,
+    .supporter-table textarea:focus {
+      outline: none; border-color: #8B4513;
+      box-shadow: 0 0 0 3px rgba(139,69,19,0.1);
+    }
+    .supporter-table input:disabled { background: #f5f5f5; color: #999; }
+
+    .supporter-table textarea {
+      resize: vertical; min-height: 36px;
+    }
+
+    .subtotal {
+      font-size: 1.1rem; font-weight: bold; color: #d32f2f;
+      text-align: center !important; min-width: 70px;
+    }
+
+    .remove-btn {
+      background: #ffebee; color: #c62828; border: 1px solid #ffcdd2;
+      width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+      font-size: 1.2rem; line-height: 1; transition: all 0.3s;
+    }
+    .remove-btn:hover { background: #c62828; color: #fff; }
+
+    .section-summary {
+      display: flex; justify-content: flex-end; align-items: center;
+      gap: 20px; padding: 20px 28px; background: #f5f0ec;
+      border-top: 2px solid #d7ccc8;
+    }
+    .section-summary .label { font-size: 1.1rem; font-weight: bold; color: #5D4037; }
+    .section-summary .amount { font-size: 1.6rem; font-weight: bold; color: #d32f2f; }
+
+    .section-notes {
+      padding: 12px 28px; background: #fff8f5; border-top: 1px solid #f0e8e4;
+      font-size: 0.85rem; color: #8d6e63;
+    }
+
+    .grand-total-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 32px; background: linear-gradient(135deg, #3E2723, #5D4037);
+      border-radius: 16px; margin-bottom: 24px;
+    }
+    .grand-total-bar h3 { color: #fff; font-size: 1.2rem; }
+    .grand-total-bar .total-amount { font-size: 2rem; font-weight: bold; color: #ffcdd2; }
+
+    .bottom-actions {
+      display: flex; justify-content: center; gap: 16px; padding: 24px;
+      background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-bottom: 24px;
+    }
+    .action-btn {
+      padding: 14px 36px; border: none; border-radius: 10px;
+      font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s;
+    }
+    .action-btn.preview { background: #6D4C41; color: #fff; }
+    .action-btn.preview:hover { background: #5D4037; }
+    .action-btn.submit { background: #2E7D32; color: #fff; }
+    .action-btn.submit:hover { background: #1B5E20; }
+    .action-btn.reset { background: #e0e0e0; color: #666; }
+    .action-btn.reset:hover { background: #bdbdbd; }
+
+    .json-preview {
+      background: #263238; color: #aed581; padding: 20px; border-radius: 12px;
+      font-family: "Courier New", monospace; font-size: 0.85rem;
+      white-space: pre-wrap; word-break: break-all; max-height: 500px;
+      overflow-y: auto; display: none;
+    }
+    .json-preview.show { display: block; }
+
+    input.error, select.error { border-color: #d32f2f !important; background: #ffebee !important; }
+
+    .supporter-manager-btn {
+      padding: 10px 16px; background: #5E35B1; color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: bold;
+      cursor: pointer; white-space: nowrap; transition: background 0.3s;
+    }
+    .supporter-manager-btn:hover { background: #7E57C2; }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: #fff; border-radius: 16px; width: 90%; max-width: 600px;
+      max-height: 80vh; overflow: hidden; display: flex; flex-direction: column;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .modal-header {
+      padding: 20px 24px; background: linear-gradient(135deg, #5E35B1, #7E57C2);
+      color: #fff; display: flex; justify-content: space-between; align-items: center;
+    }
+    .modal-header h3 { font-size: 1.2rem; margin: 0; }
+    .modal-close {
+      background: rgba(255,255,255,0.2); border: none; color: #fff;
+      width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.4); }
+    .modal-body { padding: 20px 24px; overflow-y: auto; flex: 1; }
+    .modal-footer { padding: 16px 24px; border-top: 1px solid #eee; }
+
+    /* Supporter List */
+    .supporter-list { list-style: none; margin: 0; padding: 0; }
+    .supporter-list-item {
+      display: flex; align-items: center; gap: 12px; padding: 14px;
+      background: #fafaf8; border-radius: 10px; margin-bottom: 10px;
+      transition: background 0.2s;
+    }
+    .supporter-list-item:hover { background: #f0ebe8; }
+    .supporter-avatar {
+      width: 44px; height: 44px; background: #8B4513; color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .supporter-info { flex: 1; min-width: 0; }
+    .supporter-name { font-weight: bold; color: #5D4037; margin-bottom: 4px; }
+    .supporter-detail { font-size: 0.85rem; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .supporter-actions { display: flex; gap: 8px; }
+    .supporter-actions button {
+      padding: 8px 12px; border: none; border-radius: 6px;
+      font-size: 0.85rem; cursor: pointer; transition: all 0.3s;
+    }
+    .btn-fill { background: #e8f5e9; color: #2e7d32; }
+    .btn-fill:hover { background: #c8e6c9; }
+    .btn-edit { background: #fff3e0; color: #f57c00; }
+    .btn-edit:hover { background: #ffe0b2; }
+    .btn-delete { background: #ffebee; color: #c62828; }
+    .btn-delete:hover { background: #ffcdd2; }
+
+    /* Add/Edit Form */
+    .supporter-form { display: none; }
+    .supporter-form.show { display: block; }
+    .supporter-form h4 { color: #5D4037; margin-bottom: 16px; font-size: 1rem; }
+    .form-row-custom { display: flex; gap: 12px; margin-bottom: 12px; }
+    .form-row-custom .form-group { flex: 1; }
+    .form-row-custom label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 4px; }
+    .form-row-custom input, .form-row-custom select {
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;
+      font-size: 0.95rem; font-family: inherit;
+    }
+    .form-row-custom input:focus, .form-row-custom select:focus {
+      outline: none; border-color: #5E35B1;
+    }
+    .form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 16px; }
+    .btn-save { background: #5E35B1; color: #fff; padding: 10px 24px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .btn-cancel { background: #e0e0e0; color: #666; padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer; }
+
+    /* Empty State */
+    .supporter-empty {
+      text-align: center; padding: 40px 20px; color: #888;
+    }
+    .supporter-empty p { margin-bottom: 16px; }
+    .btn-add-first {
+      background: #5E35B1; color: #fff; padding: 12px 24px;
+      border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      body { min-width: unset; }
+      .container { padding: 12px; }
+      .form-info-bar { flex-direction: column; gap: 12px; }
+      .supporter-table { font-size: 0.85rem; }
+      .supporter-table thead { display: none; }
+      .supporter-table, .supporter-table tbody { display: block; }
+      .supporter-table tbody tr {
+        display: block; background: #fff; border: 1px solid #e0e0e0;
+        border-radius: 12px; margin-bottom: 16px; padding: 16px;
+      }
+      .supporter-table tbody td {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 8px 0; border-bottom: 1px solid #f0f0f0; text-align: left;
+      }
+      .supporter-table tbody td::before {
+        content: attr(data-label); font-weight: bold; color: #8B4513;
+      }
+      .supporter-table tbody td:last-child { justify-content: flex-end; border-bottom: none; }
+      .supporter-table td.subtotal { font-size: 1.2rem; padding: 12px 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🕉️ 聖輪宗2026每月法會參贊報名表</h1>
+  <div class="intro">
+    請先詳閱所有方案內容，思考後再行填寫。<br>
+    <strong>*</strong> 為必填欄位。使用「+ 新增供奉者」可以報名多位供奉者，每位供奉者可選擇不同的供品或牌位。<br>
+  </div>
+
+  <!-- 表單填寫人資訊 -->
+  <div class="form-info-bar">
+    <div class="form-info-item">
+      <label>填表人姓名<span style="color:#d32f2f">*</span></label>
+      <input type="text" id="formFiller" placeholder="請填寫您的姓名" oninput="updateFormInfo()">
+    </div>
+    <div class="form-info-item">
+      <label>連絡方式</label>
+      <input type="text" id="formContact" placeholder="電話、Line、Email皆可" oninput="updateFormInfo()">
+    </div>
+    <div class="form-info-item">
+      <label>備註（匯款資訊 或 其它）</label>
+      <input type="text" id="formRemark" placeholder="付款方式、帳號後五碼" oninput="updateFormInfo()">
+    </div>
+    <div class="form-info-item" style="flex:0;align-self:flex-end;">
+      <button class="supporter-manager-btn" onclick="openSupporterManager()">
+        🌟 供奉人管理
+      </button>
+    </div>
+  </div>
+
+  <!-- 總金額 bar -->
+  <div class="grand-total-bar">
+    <h3>💰 暫估總金額</h3>
+    <div class="total-amount" id="grand-total">0 元 + 隨喜</div>
+  </div>
+
+  <!-- ==================== 供品區 ==================== -->
+  <div class="section-block offering-section">
+    <div class="section-header">
+      <h2>🕯️ 供贊項目</h2>
+      <div class="section-actions">
+        <button class="add-btn" onclick="addSupporter('offering')">＋ 新增供奉者</button>
+      </div>
+    </div>
+    <div class="section-content">
+      <table class="supporter-table">
+        <thead>
+          <tr>
+            <th style="min-width:90px;">姓名 *</th>
+            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:80px;">生日</th>
+            <th style="min-width:160px;">地址</th>
+            <th style="min-width:70px;">供花<br><small>(300元/份)</small></th>
+            <th style="min-width:80px;">供臥香<br><small>(隨喜)</small></th>
+            <th style="min-width:70px;">供燈<br><small>(200元/天)</small></th>
+            <th style="min-width:60px;">供香粉<br><small>(500元/份)</small></th>
+            <th style="min-width:80px;">供酒<br><small>(隨喜)</small></th>
+            <th style="min-width:120px;">祈願內容</th>
+            <th style="min-width:70px;">小計</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody id="offering-tbody"></tbody>
+      </table>
+    </div>
+    <div class="section-summary">
+      <span class="label">供贊合計：</span>
+      <span class="amount" id="offering-total">0 元</span>
+    </div>
+    <div class="section-notes">
+      💡 供花、供燈、供香粉請填寫數量。供臥香、供酒直接填寫隨喜金額即可。
+    </div>
+  </div>
+
+  <!-- ==================== 牌位區 ==================== -->
+  <div class="section-block plaque-section">
+    <div class="section-header">
+      <h2>🏛️ 牌位供奉</h2>
+      <div class="section-actions">
+        <button class="add-btn" onclick="addSupporter('plaque')">＋ 新增供奉者</button>
+      </div>
+    </div>
+    <div class="section-content">
+      <table class="supporter-table">
+        <thead>
+          <tr>
+            <th style="min-width:90px;">姓名 *</th>
+            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:80px;">生日</th>
+            <th style="min-width:160px;">地址</th>
+            <th style="min-width:60px;">長生<br>祿位</th>
+            <th style="min-width:60px;">冤親<br>債主</th>
+            <th style="min-width:60px;">歷代<br>祖先</th>
+            <th style="min-width:60px;">超度<br>蓮位</th>
+            <th style="min-width:60px;">替身<br>紙人</th>
+            <th style="min-width:70px;">隨喜<br>小祿位</th>
+            <th style="min-width:120px;">祈願內容</th>
+            <th style="min-width:70px;">小計</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody id="plaque-tbody"></tbody>
+      </table>
+    </div>
+    <div class="section-summary">
+      <span class="label">牌位區合計：</span>
+      <span class="amount" id="plaque-total">0 元</span>
+    </div>
+    <div class="section-notes">
+      💡 每個牌位類型 500元。勾選即代表申請一張。若需多人同一類型，請各自新增列。小祿位請填寫隨喜金額。超度蓮位請填寫墓園或塔位地址。
+    </div>
+  </div>
+
+  <!-- ==================== 個人專法區 ==================== -->
+  <div class="section-block personal-section">
+    <div class="section-header">
+      <h2>🎁 個人專法（本月功德主）</h2>
+      <div class="section-actions">
+        <button class="add-btn" onclick="addSupporter('personal')">＋ 新增功德主</button>
+      </div>
+    </div>
+    <div class="section-content">
+      <table class="supporter-table">
+        <thead>
+          <tr>
+            <th style="min-width:90px;">姓名 *</th>
+            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:80px;">生日</th>
+            <th style="min-width:160px;">地址</th>
+            <th style="min-width:60px;">功德主</th>
+            <th style="min-width:160px;">祈願內容</th>
+            <th style="min-width:80px;">小計</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody id="personal-tbody"></tbody>
+      </table>
+    </div>
+    <div class="section-summary">
+      <span class="label">個人專法合計：</span>
+      <span class="amount" id="personal-total">0 元</span>
+    </div>
+    <div class="section-notes">
+      💡 功德主：每人 2,680 元，包月個人專修法會。請填寫祈願內容。
+    </div>
+  </div>
+
+  <!-- 底部動作 -->
+  <div class="bottom-actions">
+    <button class="action-btn reset" onclick="resetForm()">🔄 清除重填</button>
+    <button class="action-btn submit" onclick="submitToGoogle()">🚀 送出到Google表單</button>
+    <!--<button class="action-btn preview" onclick="toggleJSON()">📋 預覽 JSON</button>
+    <button class="action-btn submit" onclick="showJSON()">📤 產生 JSON</button> -->
+  </div>
+
+<!-- JSON 預覽 -->
+  <div class="json-preview" id="json-preview"></div>
+
+</div>
+
+<!-- 供奉者管理 Modal -->
+<div class="modal-overlay" id="supporterModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>🌟 供奉者管理</h3> 
+      <button class="modal-close" onclick="closeSupporterModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <!-- 供奉人列表 -->
+      <div>(資料儲存在您【私人】的本機瀏覽器中，之後不用再重複輸入。)<br><span style="color:red">(不要在【公開共用】的電腦上使用本功能，已存之資料請手動刪除。<br>送出資料後，請按最下方的「清除重填」按鈕，刪除本機記錄)</span></div>
+      <div id="supporterListView">
+        <ul class="supporter-list" id="supporterList"></ul>
+        <div class="supporter-empty" id="supporterEmpty">
+          <p>還沒有儲存的供奉者</p>
+          <button class="btn-add-first" onclick="showAddForm()">+ 新增第一位供奉者</button>
+        </div>
+      </div>
+
+      <!-- 新增/編輯表單 -->
+      <div class="supporter-form" id="supporterForm">
+        <h4 id="formTitle">新增供奉者</h4>
+        <input type="hidden" id="editIndex" value="-1">
+        <div class="form-row-custom">
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" id="sName" placeholder="供奉者姓名">
+          </div>
+          <div class="form-group">
+            <label>DNA性別</label>
+            <select id="sGender">
+              <option value="">-</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row-custom">
+          <div class="form-group">
+            <label>生日</label>
+            <input type="text" id="sBirthday" placeholder="如：45/8/8">
+          </div>
+          <div class="form-group">
+            <label>地址</label>
+            <input type="text" id="sAddress" placeholder="地址">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-cancel" onclick="hideForm()">取消</button>
+          <button class="btn-save" onclick="saveSupporter()">儲存</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" id="modalFooter">
+      <button class="btn-save" onclick="showAddForm()" style="width:100%;">+ 新增供奉者</button>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+// ==================== Constants ====================
+const PRICE_FLOWER = 300;
+const PRICE_LAMP = 200;
+const PRICE_INCENSE_POWDER = 500;
+const PRICE_PLAQUE = 500;
+const PRICE_DHARMA = 2680;
+
+let offeringCount = 0;
+let plaqueCount = 0;
+let personalCount = 0;
+
+// ==================== Add Row ====================
+function addSupporter(type) {
+  if (type === 'offering') addOfferingRow();
+  else if (type === 'plaque') addPlaqueRow();
+  else if (type === 'personal') addPersonalRow();
+}
+
+function addOfferingRow() {
+  offeringCount++;
+  const tbody = document.getElementById('offering-tbody');
+  const row = document.createElement('tr');
+  row.className = 'supporter-row';
+  row.id = `offering-row-${offeringCount}`;
+  row.innerHTML = `
+    <td data-label="姓名"><input type="text" placeholder="供奉者姓名" oninput="calcOfferings()"></td>
+    <td data-label="性別">
+      <select onchange="calcOfferings()">
+        <option value="">-</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </td>
+    <td data-label="生日"><input type="text" placeholder="如：農曆45/8/8 吉時" oninput="calcOfferings()"></td>
+    <td data-label="地址"><input type="text" placeholder="地址" oninput="calcOfferings()"></td>
+    <td data-label="供花"><input type="number" value="0" min="0" style="width:55px;text-align:center;" oninput="calcOfferings()">份</td>
+    <td data-label="供臥香"><input type="text" value="0" placeholder="0" style="width:55px;text-align:center;" oninput="calcOfferings()">元</td>
+    <td data-label="供燈"><input type="number" value="0" min="0" style="width:55px;text-align:center;" oninput="calcOfferings()">天</td>
+    <td data-label="供香粉"><input type="number" value="0" min="0" style="width:55px;text-align:center;" oninput="calcOfferings()">份</td>
+    <td data-label="供酒"><input type="text" value="0" placeholder="0" style="width:55px;text-align:center;" oninput="calcOfferings()">元</td>
+    <td data-label="祈願內容"><input type="text" placeholder="祈願內容" oninput="calcOfferings()"></td>
+    <td class="subtotal" data-label="小計">0 元</td>
+    <td><button class="remove-btn" onclick="removeRow('offering-row-${offeringCount}', 'offering')">×</button></td>
+  `;
+  tbody.appendChild(row);
+}
+
+function addPlaqueRow() {
+  plaqueCount++;
+  const tbody = document.getElementById('plaque-tbody');
+  const row = document.createElement('tr');
+  row.className = 'supporter-row';
+  row.id = `plaque-row-${plaqueCount}`;
+  row.innerHTML = `
+    <td data-label="姓名"><input type="text" placeholder="供奉者姓名" oninput="calcPlaques()"></td>
+    <td data-label="DNA性別">
+      <select onchange="calcPlaques()">
+        <option value="">-</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </td>
+    <td data-label="生日"><input type="text" placeholder="如：農曆45/8/8 午時" oninput="calcPlaques()"></td>
+    <td data-label="地址"><input type="text" placeholder="地址" oninput="calcPlaques()"></td>
+    <td data-label="長生祿位"><input type="checkbox" value="500" onchange="calcPlaques()"></td>
+    <td data-label="冤親債主"><input type="checkbox" value="500" onchange="calcPlaques()"></td>
+    <td data-label="歷代祖先"><input type="checkbox" value="500" onchange="calcPlaques()"></td>
+    <td data-label="超度蓮位"><input type="checkbox" value="500" onchange="calcPlaques()"></td>
+    <td data-label="替身紙人"><input type="checkbox" value="500" onchange="calcPlaques()"></td>
+    <td data-label="隨喜小祿位"><input type="text" value="0" placeholder="隨喜" style="width:55px;text-align:center;" oninput="calcPlaques()">元</td>
+    <td data-label="祈願內容"><input type="text" placeholder="祈願內容" oninput="calcPlaques()"></td>
+    <td class="subtotal" data-label="小計">0 元</td>
+    <td><button class="remove-btn" onclick="removeRow('plaque-row-${plaqueCount}', 'plaque')">×</button></td>
+  `;
+  tbody.appendChild(row);
+}
+
+function addPersonalRow() {
+  personalCount++;
+  const tbody = document.getElementById('personal-tbody');
+  const row = document.createElement('tr');
+  row.className = 'supporter-row';
+  row.id = `personal-row-${personalCount}`;
+  row.innerHTML = `
+    <td data-label="姓名"><input type="text" placeholder="功德主姓名" oninput="calcPersonal()"></td>
+    <td data-label="性別">
+      <select onchange="calcPersonal()">
+        <option value="">-</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </td>
+    <td data-label="生日"><input type="text" placeholder="如：國曆45/8/8 酉時" oninput="calcPersonal()"></td>
+    <td data-label="地址"><input type="text" placeholder="地址" oninput="calcPersonal()"></td>
+    <td data-label="功德主" style="text-align:center;"><input type="checkbox" checked onchange="calcPersonal()"></td>
+    <td data-label="祈願內容"><input type="text" placeholder="祈願內容" oninput="calcPersonal()"></td>
+    <td class="subtotal" data-label="小計">2,680 元</td>
+    <td><button class="remove-btn" onclick="removeRow('personal-row-${personalCount}', 'personal')">×</button></td>
+  `;
+  tbody.appendChild(row);
+}
+
+function removeRow(rowId, type) {
+  const row = document.getElementById(rowId);
+  if (row) {
+    row.remove();
+    if (type === 'offering') calcOfferings();
+    else if (type === 'plaque') calcPlaques();
+    else if (type === 'personal') calcPersonal();
+  }
+}
+
+// ==================== Calculate ====================
+function calcOfferings() {
+  const tbody = document.getElementById('offering-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  let sectionTotal = 0;
+
+  rows.forEach(row => {
+    const numberInputs = row.querySelectorAll('input[type="number"]');
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    
+    // 依據 DOM 順序：供花(number) / 供臥香(text) / 供燈(number) / 供香粉(number) / 供酒(text)
+    const flowerQty = parseInt(numberInputs[0].value) || 0;
+    const lampQty = parseInt(numberInputs[1].value) || 0;
+    const incensePowderQty = parseInt(numberInputs[2].value) || 0;
+    
+    // textInputs 順序：姓名(0) / 生日(1) / 地址(2) / 供臥香(3) / 供酒(4) / 祈願內容(5)
+    const incenseAmt = parseInt(textInputs[3].value) || 0;
+    const wineAmt = parseInt(textInputs[4].value) || 0;
+
+    const rowTotal = flowerQty * PRICE_FLOWER + incenseAmt + lampQty * PRICE_LAMP + incensePowderQty * PRICE_INCENSE_POWDER + wineAmt;
+    row.querySelector('.subtotal').textContent = rowTotal > 0 ? `${rowTotal} 元` : '0 元';
+    sectionTotal += rowTotal;
+  });
+
+  document.getElementById('offering-total').textContent = `${sectionTotal} 元`;
+  updateGrandTotal();
+}
+
+function calcPlaques() {
+  const tbody = document.getElementById('plaque-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  let sectionTotal = 0;
+
+  rows.forEach(row => {
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    // textInputs 順序：姓名(0) / 生日(1) / 地址(2) / 小祿位金額(3) / 祈願內容(4)
+    const smallPlaqueAmt = parseInt(textInputs[3].value) || 0;
+    
+    let rowTotal = 0;
+    let hasAny = false;
+
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        hasAny = true;
+        rowTotal += parseInt(cb.value) || 0;
+      }
+    });
+
+    if (smallPlaqueAmt > 0) {
+      hasAny = true;
+      rowTotal += smallPlaqueAmt;
+    }
+
+    const subtotalCell = row.querySelector('.subtotal');
+    if (!hasAny) subtotalCell.textContent = '0 元';
+    else subtotalCell.textContent = `${rowTotal} 元`;
+
+    sectionTotal += rowTotal;
+  });
+
+  document.getElementById('plaque-total').textContent = `${sectionTotal} 元`;
+  updateGrandTotal();
+}
+
+function calcPersonal() {
+  const tbody = document.getElementById('personal-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  let sectionTotal = 0;
+
+  rows.forEach(row => {
+    const nameInput = row.querySelector('input[type="text"]');
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+    const subtotalCell = row.querySelector('.subtotal');
+    const name = nameInput ? nameInput.value.trim() : '';
+    const isDharma = Array.from(checkboxes).some(cb => cb.checked);
+
+    if (name && isDharma) {
+      subtotalCell.textContent = '2,680 元';
+      sectionTotal += PRICE_DHARMA;
+    } else if (!name) {
+      subtotalCell.textContent = '-';
+    } else {
+      subtotalCell.textContent = '0 元';
+    }
+  });
+
+  document.getElementById('personal-total').textContent = `${sectionTotal} 元`;
+  updateGrandTotal();
+}
+
+function updateGrandTotal() {
+  const offeringTotal = parseInt(document.getElementById('offering-total').textContent) || 0;
+  const plaqueTotal = parseInt(document.getElementById('plaque-total').textContent) || 0;
+  const personalTotal = parseInt(document.getElementById('personal-total').textContent) || 0;
+  document.getElementById('grand-total').textContent = `${offeringTotal + plaqueTotal + personalTotal} 元 + 隨喜`;
+}
+
+// ==================== JSON ====================
+function generateJSON() {
+  const formFiller = document.getElementById('formFiller').value.trim();
+  const formContact = document.getElementById('formContact').value.trim();
+
+  const data = {
+    填寫時間: new Date().toISOString(),
+    填表人: formFiller || null,
+    連絡方式: formContact || null,
+    供品區: [],
+    牌位區: [],
+    個人專法: []
+  };
+
+  // 供品區
+  document.querySelectorAll('#offering-tbody .supporter-row').forEach(row => {
+    const name = row.querySelector('input[type="text"]').value.trim();
+    if (!name) return;
+
+    const numberInputs = row.querySelectorAll('input[type="number"]');
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    // textInputs: 姓名(0) / 生日(1) / 地址(2) / 供臥香(3) / 供酒(4) / 祈願內容(5)
+
+    const wish = textInputs[5].value.trim();
+
+    const entry = {
+      姓名: name,
+      性別: row.querySelector('select').value || null,
+      生日: textInputs[1].value.trim() || null,
+      地址: textInputs[2].value.trim() || null,
+      供品: {},
+      祈願內容: wish || null
+    };
+
+    const flowerQty = parseInt(numberInputs[0].value) || 0;
+    const lampQty = parseInt(numberInputs[1].value) || 0;
+    const incensePowderQty = parseInt(numberInputs[2].value) || 0;
+    const incenseAmt = parseInt(textInputs[3].value) || 0;
+    const wineAmt = parseInt(textInputs[4].value) || 0;
+
+    if (flowerQty > 0) entry.供品.供花 = { 數量: flowerQty, 單價: PRICE_FLOWER, 小計: flowerQty * PRICE_FLOWER };
+    if (incenseAmt > 0) entry.供品.供臥香 = { 隨喜金額: incenseAmt };
+    if (lampQty > 0) entry.供品.供燈 = { 數量: lampQty, 單價: PRICE_LAMP, 小計: lampQty * PRICE_LAMP };
+    if (incensePowderQty > 0) entry.供品.供香粉 = { 數量: incensePowderQty, 單價: PRICE_INCENSE_POWDER, 小計: incensePowderQty * PRICE_INCENSE_POWDER };
+    if (wineAmt > 0) entry.供品.供酒 = { 隨喜金額: wineAmt };
+
+    if (Object.keys(entry.供品).length > 0) {
+      data.供品區.push(entry);
+    }
+  });
+
+  // 牌位區
+  document.querySelectorAll('#plaque-tbody .supporter-row').forEach(row => {
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    const name = textInputs[0].value.trim();
+    if (!name) return;
+
+    // textInputs 順序：姓名(0) / 生日(1) / 地址(2) / 小祿位金額(3) / 祈願內容(4)
+    const smallPlaqueAmt = parseInt(textInputs[3].value) || 0;
+    const wish = textInputs[4].value.trim();
+
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+
+    const entry = {
+      姓名: name,
+      DNA性別: row.querySelector('select').value || null,
+      生日: textInputs[1].value.trim() || null,
+      地址: textInputs[2].value.trim() || null,
+      牌位: [],
+      祈願內容: wish || null
+    };
+
+    const plaqueTypes = ['長生祿位', '冤親債主', '歷代祖先', '超度蓮位', '替身紙人'];
+    checkboxes.forEach((cb, idx) => {
+      if (cb.checked) {
+        entry.牌位.push({
+          類型: plaqueTypes[idx],
+          金額: parseInt(cb.value)
+        });
+      }
+    });
+
+    if (smallPlaqueAmt > 0) {
+      entry.牌位.push({
+        類型: '隨喜小祿位',
+        金額: smallPlaqueAmt
+      });
+    }
+
+    if (entry.牌位.length > 0) {
+      data.牌位區.push(entry);
+    }
+  });
+
+  // 個人專法
+  document.querySelectorAll('#personal-tbody .supporter-row').forEach(row => {
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    const name = textInputs[0].value.trim();
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+    const isDharma = Array.from(checkboxes).some(cb => cb.checked);
+    if (!name || !isDharma) return;
+
+    data.個人專法.push({
+      姓名: name,
+      DNA性別: row.querySelector('select').value || null,
+      生日: textInputs[1].value.trim() || null,
+      地址: textInputs[2].value.trim() || null,
+      身份: '功德主',
+      祈願內容: textInputs[3].value.trim() || null,
+      金額: PRICE_DHARMA
+    });
+  });
+
+  return data;
+}
+
+function toggleJSON() {
+  const preview = document.getElementById('json-preview');
+  if (preview.classList.contains('show')) {
+    preview.classList.remove('show');
+  } else {
+    const data = generateJSON();
+    preview.textContent = JSON.stringify(data, null, 2);
+    preview.classList.add('show');
+  }
+}
+
+function showJSON() {
+  const data = generateJSON();
+  const jsonStr = JSON.stringify(data, null, 2);
+  const preview = document.getElementById('json-preview');
+  preview.textContent = jsonStr;
+  preview.classList.add('show');
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(jsonStr).then(() => {
+      alert('✅ JSON 已複製到剪貼簿！');
+    }).catch(() => {
+      console.log(jsonStr);
+    });
+  }
+}
+
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzTdkK9PNdCnWzQt8wPyUk35Fle6iNYbg-UzmUoE4pepJoN4BWxteWATbq5KsXXQ1TC/exec';
+
+function generateUUID() {
+  return crypto.randomUUID ? crypto.randomUUID()
+    : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0;
+      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+async function submitToGoogle() {
+  const formFiller = document.getElementById('formFiller').value.trim();
+  const formContact = document.getElementById('formContact').value.trim();
+  const formRemark = document.getElementById('formRemark').value.trim();
+
+  if (!formFiller) {
+    alert('請填寫「填表人」姓名');
+    return;
+  }
+  if (!formContact) {
+    alert('請填寫「聯絡方式」');
+    return;
+  }
+
+  const formBtns = document.querySelectorAll('.bottom-actions button');
+  formBtns.forEach(b => b.disabled = true);
+
+  // 同一批送出的記號（所有 record 共用）
+  const submissionId = generateUUID().substring(0, 8).toUpperCase();
+
+  let successCount = 0;
+  let errorCount = 0;
+  const errors = [];
+
+  // === 供品區 ===
+  document.querySelectorAll('#offering-tbody .supporter-row').forEach(row => {
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    const name = textInputs[0].value.trim();
+    if (!name) return;
+
+    const numberInputs = row.querySelectorAll('input[type="number"]');
+    const flowerQty = parseInt(numberInputs[0].value) || 0;
+    const lampQty = parseInt(numberInputs[1].value) || 0;
+    const powderQty = parseInt(numberInputs[2].value) || 0;
+    const incenseAmt = parseInt(textInputs[3].value) || 0;
+    const wineAmt = parseInt(textInputs[4].value) || 0;
+    const wish = textInputs[5].value.trim();
+
+    const subtotal = flowerQty * PRICE_FLOWER + lampQty * PRICE_LAMP + powderQty * PRICE_INCENSE_POWDER + incenseAmt + wineAmt;
+
+    const record = {
+      uuid: generateUUID(),
+      submissionId, formFiller, formContact, formRemark, zone: '供品區', name,
+      gender: row.querySelector('select').value || '',
+      birthday: textInputs[1].value.trim() || '',
+      address: textInputs[2].value.trim() || '',
+      flower: flowerQty, lamp: lampQty, powder: powderQty,
+      incense: incenseAmt, wine: wineAmt,
+      smallTablet: 0, merit: '×', wish,
+      subtotal,
+      plaque1: 0, plaque2: 0, plaque3: 0, plaque4: 0, plaque5: 0
+    };
+
+    postRow(record).then(ok => {
+      if (ok) successCount++; else { errorCount++; errors.push(name + '(供品區)'); }
+    });
+  });
+
+  // === 牌位區 ===
+  document.querySelectorAll('#plaque-tbody .supporter-row').forEach(row => {
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    const name = textInputs[0].value.trim();
+    if (!name) return;
+
+    const smallTabletAmt = parseInt(textInputs[3].value) || 0;
+    const wish = textInputs[4].value.trim();
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+    const plaqueTypes = ['長生祿位', '冤親債主', '歷代祖先', '超度蓮位', '替身紙人'];
+    const selectedPlaques = [];
+    let plaqueTotal = 0;
+    checkboxes.forEach((cb, idx) => {
+      if (cb.checked) {
+        selectedPlaques.push(plaqueTypes[idx]);
+        plaqueTotal += parseInt(cb.value) || 0;
+      }
+    });
+
+    const subtotal = smallTabletAmt + plaqueTotal;
+
+    const record = {
+      uuid: generateUUID(),
+      submissionId, formFiller, formContact, formRemark, zone: '牌位區', name,
+      gender: row.querySelector('select').value || '',
+      birthday: textInputs[1].value.trim() || '',
+      address: textInputs[2].value.trim() || '',
+      flower: 0, lamp: 0, powder: 0, incense: 0, wine: 0,
+      smallTablet: smallTabletAmt,
+      merit: '×', wish, subtotal,
+      plaque1: checkboxes[0].checked ? 1 : 0,
+      plaque2: checkboxes[1].checked ? 1 : 0,
+      plaque3: checkboxes[2].checked ? 1 : 0,
+      plaque4: checkboxes[3].checked ? 1 : 0,
+      plaque5: checkboxes[4].checked ? 1 : 0
+    };
+
+    postRow(record).then(ok => {
+      if (ok) successCount++; else { errorCount++; errors.push(name + '(牌位區)'); }
+    });
+  });
+
+  // === 個人專法 ===
+  document.querySelectorAll('#personal-tbody .supporter-row').forEach(row => {
+    const textInputs = row.querySelectorAll('input[type="text"]');
+    const name = textInputs[0].value.trim();
+    if (!name) return;
+
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+    const isDharma = Array.from(checkboxes).some(cb => cb.checked);
+    if (!isDharma) return;
+
+    const wish = textInputs[3].value.trim();
+
+    const record = {
+      uuid: generateUUID(),
+      submissionId, formFiller, formContact, formRemark, zone: '個人專法', name,
+      gender: row.querySelector('select').value || '',
+      birthday: textInputs[1].value.trim() || '',
+      address: textInputs[2].value.trim() || '',
+      flower: 0, lamp: 0, powder: 0, incense: 0, wine: 0,
+      smallTablet: 0, merit: '○', wish,
+      subtotal: PRICE_DHARMA,
+      plaque1: 0, plaque2: 0, plaque3: 0, plaque4: 0, plaque5: 0
+    };
+
+    postRow(record).then(ok => {
+      if (ok) successCount++; else { errorCount++; errors.push(name + '(個人專法)'); }
+    });
+  });
+
+  // 等一下再檢查結果（非同步）
+  setTimeout(() => {
+    formBtns.forEach(b => b.disabled = false);
+    if (errorCount === 0) {
+      //alert('✅ 已成功送出 ' + successCount + ' 筆記錄！');
+      alert('✅ 資料已送出！請私訊香海師姊確認，謝謝！');
+      // resetForm();
+    } else {
+      alert('⚠️ 送出完成：成功 ' + successCount + ' 筆，失敗 ' + errorCount + ' 筆\n' + errors.join(', '));
+    }
+  }, 1500);
+}
+
+async function postRow(record) {
+  try {
+    const resp = await fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(record)
+    });
+    return true;
+  } catch (e) {
+    console.error('POST error:', e);
+    return false;
+  }
+}
+
+function resetForm() {
+  if (confirm('確定要清除所有資料嗎？')) {
+    document.getElementById('offering-tbody').innerHTML = '';
+    document.getElementById('plaque-tbody').innerHTML = '';
+    document.getElementById('personal-tbody').innerHTML = '';
+    document.getElementById('json-preview').classList.remove('show');
+    offeringCount = plaqueCount = personalCount = 0;
+    updateGrandTotal();
+  }
+}
+
+// Init
+addOfferingRow();
+
+// ==================== Supporter Manager (localStorage) ====================
+const SUPPORTER_KEY = 'puja_supporters';
+const FILLER_KEY = 'puja_filler_data';
+
+function getSupporters() {
+  const data = localStorage.getItem(SUPPORTER_KEY);
+  return data ? JSON.parse(data) : [];
+}
+
+function saveSupporters(supporters) {
+  localStorage.setItem(SUPPORTER_KEY, JSON.stringify(supporters));
+}
+
+function getFillerData() {
+  const data = localStorage.getItem(FILLER_KEY);
+  return data ? JSON.parse(data) : { name: '', contact: '' };
+}
+
+function saveFillerData(name, contact) {
+  localStorage.setItem(FILLER_KEY, JSON.stringify({ name, contact }));
+}
+
+function openSupporterManager() {
+  const modal = document.getElementById('supporterModal');
+  modal.classList.add('show');
+  renderSupporterList();
+  hideForm();
+  loadFillerData();
+}
+
+function closeSupporterModal() {
+  document.getElementById('supporterModal').classList.remove('show');
+}
+
+function loadFillerData() {
+  const data = getFillerData();
+  document.getElementById('formFiller').value = data.name || '';
+  document.getElementById('formContact').value = data.contact || '';
+}
+
+function renderSupporterList() {
+  const list = document.getElementById('supporterList');
+  const empty = document.getElementById('supporterEmpty');
+  const footer = document.getElementById('modalFooter');
+  const supporters = getSupporters();
+
+  if (supporters.length === 0) {
+    list.style.display = 'none';
+    empty.style.display = 'block';
+    footer.style.display = 'block';
+    return;
+  }
+
+  list.style.display = 'block';
+  empty.style.display = 'none';
+  footer.style.display = 'block';
+
+  list.innerHTML = supporters.map((s, idx) => `
+    <li class="supporter-list-item">
+      <div class="supporter-avatar">👤</div>
+      <div class="supporter-info">
+        <div class="supporter-name">${s.name}</div>
+        <div class="supporter-detail">${s.gender || ''} ${s.birthday || ''} ${s.address || ''}</div>
+      </div>
+      <div class="supporter-actions">
+        <button class="btn-fill" onclick="fillToOffering(${idx})">供品區</button>
+        <button class="btn-fill" onclick="fillToPlaque(${idx})">牌位區</button>
+        <button class="btn-fill" onclick="fillToPersonal(${idx})">個人專法</button>
+        <button class="btn-edit" onclick="editSupporter(${idx})">編輯</button>
+        <button class="btn-delete" onclick="deleteSupporter(${idx})">刪除</button>
+      </div>
+    </li>
+  `).join('');
+}
+
+function showAddForm() {
+  document.getElementById('formTitle').textContent = '新增供奉者';
+  document.getElementById('editIndex').value = '-1';
+  document.getElementById('sName').value = '';
+  document.getElementById('sGender').value = '';
+  document.getElementById('sBirthday').value = '';
+  document.getElementById('sAddress').value = '';
+  document.getElementById('supporterListView').style.display = 'none';
+  document.getElementById('supporterForm').classList.add('show');
+  document.getElementById('modalFooter').style.display = 'none';
+}
+
+function showEditForm(supporter, index) {
+  document.getElementById('formTitle').textContent = '編輯供奉者';
+  document.getElementById('editIndex').value = index;
+  document.getElementById('sName').value = supporter.name || '';
+  document.getElementById('sGender').value = supporter.gender || '';
+  document.getElementById('sBirthday').value = supporter.birthday || '';
+  document.getElementById('sAddress').value = supporter.address || '';
+  document.getElementById('supporterListView').style.display = 'none';
+  document.getElementById('supporterForm').classList.add('show');
+  document.getElementById('modalFooter').style.display = 'none';
+}
+
+function hideForm() {
+  document.getElementById('supporterListView').style.display = 'block';
+  document.getElementById('supporterForm').classList.remove('show');
+  document.getElementById('modalFooter').style.display = 'block';
+}
+
+function saveSupporter() {
+  const name = document.getElementById('sName').value.trim();
+  if (!name) {
+    alert('請填寫姓名');
+    return;
+  }
+
+  const gender = document.getElementById('sGender').value;
+  const birthday = document.getElementById('sBirthday').value.trim();
+  const address = document.getElementById('sAddress').value.trim();
+
+  const supporters = getSupporters();
+  const editIndex = parseInt(document.getElementById('editIndex').value);
+
+  const newSupporter = { name, gender, birthday, address };
+
+  if (editIndex === -1) {
+    supporters.push(newSupporter);
+  } else {
+    supporters[editIndex] = newSupporter;
+  }
+
+  saveSupporters(supporters);
+  hideForm();
+  renderSupporterList();
+}
+
+function editSupporter(index) {
+  const supporters = getSupporters();
+  showEditForm(supporters[index], index);
+}
+
+function deleteSupporter(index) {
+  if (!confirm('確定要刪除這位供奉者嗎？')) return;
+  const supporters = getSupporters();
+  supporters.splice(index, 1);
+  saveSupporters(supporters);
+  renderSupporterList();
+}
+
+function fillToOffering(index) {
+  const s = getSupporters()[index];
+  addOfferingRow();
+  const tbody = document.getElementById('offering-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  const lastRow = rows[rows.length - 1];
+  const textInputs = lastRow.querySelectorAll('input[type="text"]');
+  const selects = lastRow.querySelectorAll('select');
+
+  textInputs[0].value = s.name;
+  selects[0].value = s.gender;
+  textInputs[1].value = s.birthday;
+  textInputs[2].value = s.address;
+  calcOfferings();
+  saveFillerData(document.getElementById('formFiller').value, document.getElementById('formContact').value);
+  closeSupporterModal();
+}
+
+function fillToPlaque(index) {
+  const s = getSupporters()[index];
+  addPlaqueRow();
+  const tbody = document.getElementById('plaque-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  const lastRow = rows[rows.length - 1];
+  const textInputs = lastRow.querySelectorAll('input[type="text"]');
+  const selects = lastRow.querySelectorAll('select');
+
+  textInputs[0].value = s.name;
+  selects[0].value = s.gender;
+  textInputs[1].value = s.birthday;
+  textInputs[2].value = s.address;
+  calcPlaques();
+  saveFillerData(document.getElementById('formFiller').value, document.getElementById('formContact').value);
+  closeSupporterModal();
+}
+
+function fillToPersonal(index) {
+  const s = getSupporters()[index];
+  addPersonalRow();
+  const tbody = document.getElementById('personal-tbody');
+  const rows = tbody.querySelectorAll('.supporter-row');
+  const lastRow = rows[rows.length - 1];
+  const textInputs = lastRow.querySelectorAll('input[type="text"]');
+  const selects = lastRow.querySelectorAll('select');
+
+  textInputs[0].value = s.name;
+  selects[0].value = s.gender;
+  textInputs[1].value = s.birthday;
+  textInputs[2].value = s.address;
+  calcPersonal();
+  saveFillerData(document.getElementById('formFiller').value, document.getElementById('formContact').value);
+  closeSupporterModal();
+}
+
+// 儲存填表人資料（oninput時自動儲存）
+function updateFormInfo() {
+  const name = document.getElementById('formFiller').value.trim();
+  const contact = document.getElementById('formContact').value.trim();
+  saveFillerData(name, contact);
+}
+
+// Init - 自動帶入填表人資料
+loadFillerData();
+</script>
+</body>
+</html>
