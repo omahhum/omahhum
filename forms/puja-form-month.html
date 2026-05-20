@@ -1010,6 +1010,12 @@ function resetForm() {
     document.getElementById('json-preview').classList.remove('show');
     offeringCount = plaqueCount = personalCount = 0;
     updateGrandTotal();
+
+    // 清除填表人資料
+    document.getElementById('formFiller').value = '';
+    document.getElementById('formContact').value = '';
+    document.getElementById('formRemark').value = '';
+    localStorage.removeItem(FILLER_KEY);
   }
 }
 
