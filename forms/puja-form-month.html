@@ -269,6 +269,8 @@
   <div class="intro">
     請先詳閱所有方案內容，思考後再行填寫。<br>
     <strong>*</strong> 為必填欄位。使用「+ 新增供奉者」可以報名多位供奉者，每位供奉者可選擇不同的供品或牌位。<br>
+    為免詐騙障礙，參贊費用支付方式，請同修私訊 香海師姐 索取：<a href="https://www.facebook.com/lightwishsoul/" target="_blank">https://www.facebook.com/lightwishsoul/</a><br>
+    送出報名表後，亦請私訊 香海師姐 告知已完成報名，並提供填表人姓名等資訊，以便師姐核對資料與安排供奉等庶務。<br>
   </div>
 
   <!-- 表單填寫人資訊 -->
@@ -311,7 +313,7 @@
         <thead>
           <tr>
             <th style="min-width:90px;">姓名 *</th>
-            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:60px;">性別</th>
             <th style="min-width:80px;">生日</th>
             <th style="min-width:160px;">地址</th>
             <th style="min-width:70px;">供花<br><small>(300元/份)</small></th>
@@ -349,7 +351,7 @@
         <thead>
           <tr>
             <th style="min-width:90px;">姓名 *</th>
-            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:60px;">性別</th>
             <th style="min-width:80px;">生日</th>
             <th style="min-width:160px;">地址</th>
             <th style="min-width:60px;">長生<br>祿位</th>
@@ -388,7 +390,7 @@
         <thead>
           <tr>
             <th style="min-width:90px;">姓名 *</th>
-            <th style="min-width:60px;">DNA性別</th>
+            <th style="min-width:60px;">性別</th>
             <th style="min-width:80px;">生日</th>
             <th style="min-width:160px;">地址</th>
             <th style="min-width:60px;">功德主</th>
@@ -450,7 +452,7 @@
             <input type="text" id="sName" placeholder="供奉者姓名">
           </div>
           <div class="form-group">
-            <label>DNA性別</label>
+            <label>性別</label>
             <select id="sGender">
               <option value="">-</option>
               <option value="男">男</option>
@@ -537,7 +539,7 @@ function addPlaqueRow() {
   row.id = `plaque-row-${plaqueCount}`;
   row.innerHTML = `
     <td data-label="姓名"><input type="text" placeholder="供奉者姓名" oninput="calcPlaques()"></td>
-    <td data-label="DNA性別">
+    <td data-label="性別">
       <select onchange="calcPlaques()">
         <option value="">-</option>
         <option value="男">男</option>
@@ -757,7 +759,7 @@ function generateJSON() {
 
     const entry = {
       姓名: name,
-      DNA性別: row.querySelector('select').value || null,
+      性別: row.querySelector('select').value || null,
       生日: textInputs[1].value.trim() || null,
       地址: textInputs[2].value.trim() || null,
       牌位: [],
@@ -796,7 +798,7 @@ function generateJSON() {
 
     data.個人專法.push({
       姓名: name,
-      DNA性別: row.querySelector('select').value || null,
+      性別: row.querySelector('select').value || null,
       生日: textInputs[1].value.trim() || null,
       地址: textInputs[2].value.trim() || null,
       身份: '功德主',
